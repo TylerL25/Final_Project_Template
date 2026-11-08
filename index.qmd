@@ -81,9 +81,11 @@ tna.raw<-read.csv(file="data/TNA_index.txt",
 
 ```
 
-```{r, results='asis'}
-nc_open("data/data_stream-moda_stepType-avgad.nc")
-nc_open("data/data_stream-moda_stepType-avgua.nc")
+```{r}
+#| message: false
+#| warning: false
+#nc_open("data/data_stream-moda_stepType-avgad.nc")
+#nc_open("data/data_stream-moda_stepType-avgua.nc")
 snowfall_rasters<-rast("data/data_stream-moda_stepType-avgad.nc")
 temp_rasters<-rast("data/data_stream-moda_stepType-avgua.nc")
 
