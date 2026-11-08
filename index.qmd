@@ -39,7 +39,7 @@ See <http://rmarkdown.rstudio.com/> for all the amazing things you can do.
 Here's my first code chunk.
 
 ```{r}
-x=3+4
+x=3+90
 ```
 
 Refer to output in your narrative like this: x=`r x` .
