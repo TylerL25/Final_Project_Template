@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name here">
-<meta name="dcterms.date" content="2026-11-08">
+<meta name="dcterms.date" content="2026-11-09">
 
 <title>My Final Project Template – GEO511_FinalProject</title>
 <style>
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 8, 2026</p>
+      <p class="date">November 9, 2026</p>
     </div>
   </div>
   
@@ -221,12 +221,12 @@ The following package(s) will be installed:
 These packages will be installed into "~/work/Final_Project_Template/Final_Project_Template/renv/library/linux-ubuntu-resolute/R-4.6/x86_64-pc-linux-gnu".
 
 # Downloading packages -------------------------------------------------------
-[32m✔[0m ncdf4 1.24                               [283 kB in 0.3s]
-Successfully downloaded 1 package in 0.47 seconds.
+[32m✔[0m ncdf4 1.24                               [283 kB in 0.24s]
+Successfully downloaded 1 package in 0.41 seconds.
 
 # Installing packages --------------------------------------------------------
 [32m✔[0m ncdf4 1.24                               [installed binary]
-Successfully installed 1 package in 0.21 seconds.</code></pre>
+Successfully installed 1 package in 0.23 seconds.</code></pre>
 </div>
 </div>
 <p>Refer to output in your narrative like this: .</p>
@@ -258,12 +258,13 @@ Successfully installed 1 package in 0.21 seconds.</code></pre>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/data_stream-moda_stepType-avgad.nc")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/data_stream-moda_stepType-avgua.nc")</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/data_stream-moda_stepType-avgad.nc"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/data_stream-moda_stepType-avgua.nc"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp_rasters<span class="sc">$</span>t2m_3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/8f41d76f03dd447542e37b1129c926.nc")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"sf"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"t2m"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(snowfall_rasters<span class="sc">$</span>sf_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -271,6 +272,19 @@ Successfully installed 1 package in 0.21 seconds.</code></pre>
 </figure>
 </div>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp_rasters<span class="sc">$</span>t2m_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Checking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>temp_rasters_f<span class="ot">&lt;-</span>(temp_rasters<span class="fl">-273.15</span>)<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>snowfall_rasters_in<span class="ot">&lt;-</span>snowfall_rasters<span class="sc">*</span>(<span class="dv">100</span><span class="sc">/</span><span class="fl">2.54</span>)<span class="sc">*</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Add any additional processing steps here.</p>
 </section>
@@ -280,12 +294,23 @@ Successfully installed 1 package in 0.21 seconds.</code></pre>
 <p>[~200 words]</p>
 <p>Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.</p>
 <p>Show tables, plots, etc. and describe them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(snowfall_rasters_in)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>Map of completely random data</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <section id="dygraphs-example" class="level3">
 <h3 class="anchored" data-anchor-id="dygraphs-example">Dygraphs Example</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(dygraphs)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dygraph(nhtemp, main = "New Haven Temperatures") |&gt; </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(dygraphs)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dygraph(nhtemp, main = "New Haven Temperatures") |&gt; </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
