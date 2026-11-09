@@ -84,12 +84,20 @@ tna.raw<-read.csv(file="data/TNA_index.txt",
 ```{r}
 #| message: false
 #| warning: false
-#nc_open("data/data_stream-moda_stepType-avgad.nc")
-#nc_open("data/data_stream-moda_stepType-avgua.nc")
-snowfall_rasters<-rast("data/data_stream-moda_stepType-avgad.nc")
-temp_rasters<-rast("data/data_stream-moda_stepType-avgua.nc")
 
-plot(temp_rasters$t2m_3)
+#nc_open("data/8f41d76f03dd447542e37b1129c926.nc")
+
+snowfall_rasters<-rast("data/8f41d76f03dd447542e37b1129c926.nc",subds="sf")
+
+temp_rasters<-rast("data/8f41d76f03dd447542e37b1129c926.nc",subds="t2m")
+
+plot(snowfall_rasters$sf_126)
+plot(temp_rasters$t2m_126)
+```
+Checking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster 
+```{r}
+temp_rasters_f<-(temp_rasters-273.15)*(9/5)+32
+snowfall_rasters_in<-snowfall_rasters*(100/2.54)*10
 ```
 
 Add any additional processing steps here.
@@ -103,7 +111,7 @@ Tables and figures (maps and other graphics) are carefully planned to convey the
 Show tables, plots, etc. and describe them.
 
 ```{r, fig.width=6, fig.height=3, fig.cap="Map of completely random data"}
-
+plot(snowfall_rasters_in)
 ```
 
 ```{r}
