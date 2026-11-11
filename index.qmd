@@ -40,7 +40,9 @@ Here's my first code chunk.
 
 
 ```{r}
-install.packages("ncdf4")
+#install.packages("ncdf4")
+#install.packages("rasterVis")
+#install.packages("tidyterra")
 ```
 
 Refer to output in your narrative like this: .
@@ -52,6 +54,9 @@ library(dplyr)
 library(ggplot2)
 library(ncdf4)
 library(terra)
+library(sf)
+library(rasterVis)
+library(tidyterra)
 
 ```
 
@@ -110,12 +115,42 @@ Tables and figures (maps and other graphics) are carefully planned to convey the
 
 Show tables, plots, etc. and describe them.
 
-```{r, fig.width=6, fig.height=3, fig.cap="Map of completely random data"}
-plot(snowfall_rasters_in)
+```{r}
+ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
+  labs(title = "Average Daily Snowfall in January 1995")+
+  scale_fill_continuous(name="Snowfall (in)",palette = c("skyblue1","blue","purple1","pink2"))+
+  theme(
+    panel.background = element_blank()
+  )
+ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
+  labs(title = "Average 2-meter Temperature in January 1995")+
+  scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
+  theme(
+    panel.background = element_blank()
+  )
+```
+```{r}
+buffalo<-c("Buffalo",-78.88,42.89)
+toronto<-c("Toronto",-79.38,43.65)
+pittsburgh<-c("Pittsburgh",-79.98,40.44)
+philadelphia<-c("Philadelphia", -75.16,39.96)
+cities<-cbind(buffalo,toronto,pittsburgh,philadelphia)
+cities.df<-data.frame(t(cities))
+colnames(cities.df)<-c("City","lon","lat")
+cities.sf<-st_as_sf(cities.df,coords=c("lon","lat"),crs=4326)
 ```
 
 ```{r}
-
+ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
+  geom_sf(data=cities.sf,size=2)+
+  geom_sf_text(data=cities.sf,
+               aes(label = City),
+               position = position_nudge(x=0,y=.2))+
+  labs(title = "Average 2-meter Temperature in January 1995")+
+  scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
+  theme(
+    panel.background = element_blank()
+  )
 ```
 
 ### Dygraphs Example
