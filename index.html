@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name here">
-<meta name="dcterms.date" content="2026-11-09">
+<meta name="dcterms.date" content="2026-11-11">
 
 <title>My Final Project Template – GEO511_FinalProject</title>
 <style>
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 9, 2026</p>
+      <p class="date">November 11, 2026</p>
     </div>
   </div>
   
@@ -221,50 +221,99 @@ The following package(s) will be installed:
 These packages will be installed into "~/work/Final_Project_Template/Final_Project_Template/renv/library/linux-ubuntu-resolute/R-4.6/x86_64-pc-linux-gnu".
 
 # Downloading packages -------------------------------------------------------
-[32m✔[0m ncdf4 1.24                               [283 kB in 0.19s]
-Successfully downloaded 1 package in 0.36 seconds.
+[32m✔[0m ncdf4 1.24                               [283 kB in 0.31s]
+Successfully downloaded 1 package in 0.51 seconds.
 
 # Installing packages --------------------------------------------------------
 [32m✔[0m ncdf4 1.24                               [installed binary]
-Successfully installed 1 package in 0.2 seconds.</code></pre>
+Successfully installed 1 package in 0.24 seconds.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rasterVis"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The following package(s) will be installed:
+- deldir       [2.0-4]
+- hexbin       [1.28.6]
+- interp       [1.1-6]
+- jpeg         [0.1-11]
+- latticeExtra [0.6-31]
+- rasterVis    [0.51.7]
+- RcppEigen    [0.3.4.0.2]
+These packages will be installed into "~/work/Final_Project_Template/Final_Project_Template/renv/library/linux-ubuntu-resolute/R-4.6/x86_64-pc-linux-gnu".
+
+# Downloading packages -------------------------------------------------------
+[32m✔[0m hexbin 1.28.6                            [1.6 MB in 0.25s]
+[32m✔[0m interp 1.1-6                             [1.7 MB in 0.26s]
+[32m✔[0m jpeg 0.1-11                              [32 kB in 0.26s]
+[32m✔[0m latticeExtra 0.6-31                      [2.2 MB in 0.26s]
+[32m✔[0m RcppEigen 0.3.4.0.2                      [1.9 MB in 0.27s]
+[32m✔[0m rasterVis 0.51.7                         [224 kB in 0.27s]
+[32m✔[0m deldir 2.0-4                             [282 kB in 0.35s]
+Successfully downloaded 7 packages in 0.55 seconds.
+
+# Installing packages --------------------------------------------------------
+[32m✔[0m deldir 2.0-4                             [installed binary]
+[32m✔[0m hexbin 1.28.6                            [installed binary]
+[32m✔[0m jpeg 0.1-11                              [installed binary]
+[32m✔[0m RcppEigen 0.3.4.0.2                      [installed binary]
+[32m✔[0m interp 1.1-6                             [installed binary]
+[32m✔[0m latticeExtra 0.6-31                      [installed binary]
+[32m✔[0m rasterVis 0.51.7                         [installed binary]
+Successfully installed 7 packages in 7.2 seconds.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The following package(s) will be installed:
+- tidyterra [1.3.1]
+These packages will be installed into "~/work/Final_Project_Template/Final_Project_Template/renv/library/linux-ubuntu-resolute/R-4.6/x86_64-pc-linux-gnu".
+
+# Downloading packages -------------------------------------------------------
+[32m✔[0m tidyterra 1.3.1                          [2.2 MB in 0.53s]
+Successfully downloaded 1 package in 0.73 seconds.
+
+# Installing packages --------------------------------------------------------
+[32m✔[0m tidyterra 1.3.1                          [installed binary]
+Successfully installed 1 package in 3.8 seconds.</code></pre>
 </div>
 </div>
 <p>Refer to output in your narrative like this: .</p>
 <p>Load any required packages in a code chunk (you may need to install some packages):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncdf4)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncdf4)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rasterVis)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="download-and-clean-all-required-data" class="level2">
 <h2 class="anchored" data-anchor-id="download-and-clean-all-required-data">Download and clean all required data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/NAO_index.txt"</span>,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep=</span><span class="st">""</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>soi.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/SOI_index.txt"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>pna.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/PNA_index.txt"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>tna.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/TNA_index.txt"</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/NAO_index.txt"</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep=</span><span class="st">""</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>soi.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/SOI_index.txt"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>pna.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/PNA_index.txt"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>tna.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/TNA_index.txt"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">""</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/8f41d76f03dd447542e37b1129c926.nc")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"sf"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"t2m"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(snowfall_rasters<span class="sc">$</span>sf_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/8f41d76f03dd447542e37b1129c926.nc")</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"sf"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"t2m"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(snowfall_rasters<span class="sc">$</span>sf_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -272,7 +321,7 @@ Successfully installed 1 package in 0.2 seconds.</code></pre>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp_rasters<span class="sc">$</span>t2m_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp_rasters<span class="sc">$</span>t2m_126)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -283,8 +332,8 @@ Successfully installed 1 package in 0.2 seconds.</code></pre>
 </div>
 <p>Checking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>temp_rasters_f<span class="ot">&lt;-</span>(temp_rasters<span class="fl">-273.15</span>)<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>snowfall_rasters_in<span class="ot">&lt;-</span>snowfall_rasters<span class="sc">*</span>(<span class="dv">100</span><span class="sc">/</span><span class="fl">2.54</span>)<span class="sc">*</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>temp_rasters_f<span class="ot">&lt;-</span>(temp_rasters<span class="fl">-273.15</span>)<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>snowfall_rasters_in<span class="ot">&lt;-</span>snowfall_rasters<span class="sc">*</span>(<span class="dv">100</span><span class="sc">/</span><span class="fl">2.54</span>)<span class="sc">*</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Add any additional processing steps here.</p>
 </section>
@@ -295,12 +344,62 @@ Successfully installed 1 package in 0.2 seconds.</code></pre>
 <p>Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.</p>
 <p>Show tables, plots, etc. and describe them.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(snowfall_rasters_in)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>snowfall_rasters_in<span class="sc">$</span>sf_1)<span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Daily Snowfall in January 1995"</span>)<span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Snowfall (in)"</span>,<span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"skyblue1"</span>,<span class="st">"blue"</span>,<span class="st">"purple1"</span>,<span class="st">"pink2"</span>))<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption>Map of completely random data</figcaption>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>)<span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,<span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>buffalo<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="sc">-</span><span class="fl">78.88</span>,<span class="fl">42.89</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>toronto<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Toronto"</span>,<span class="sc">-</span><span class="fl">79.38</span>,<span class="fl">43.65</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pittsburgh<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Pittsburgh"</span>,<span class="sc">-</span><span class="fl">79.98</span>,<span class="fl">40.44</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>philadelphia<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Philadelphia"</span>, <span class="sc">-</span><span class="fl">75.16</span>,<span class="fl">39.96</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>cities<span class="ot">&lt;-</span><span class="fu">cbind</span>(buffalo,toronto,pittsburgh,philadelphia)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>cities.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">t</span>(cities))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cities.df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"City"</span>,<span class="st">"lon"</span>,<span class="st">"lat"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>cities.sf<span class="ot">&lt;-</span><span class="fu">st_as_sf</span>(cities.df,<span class="at">coords=</span><span class="fu">c</span>(<span class="st">"lon"</span>,<span class="st">"lat"</span>),<span class="at">crs=</span><span class="dv">4326</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>cities.sf,<span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data=</span>cities.sf,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> City),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">y=</span>.<span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>)<span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,<span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
+give correct results for longitude/latitude data</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -308,9 +407,9 @@ Successfully installed 1 package in 0.2 seconds.</code></pre>
 <section id="dygraphs-example" class="level3">
 <h3 class="anchored" data-anchor-id="dygraphs-example">Dygraphs Example</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(dygraphs)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dygraph(nhtemp, main = "New Haven Temperatures") |&gt; </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(dygraphs)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dygraph(nhtemp, main = "New Haven Temperatures") |&gt; </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
