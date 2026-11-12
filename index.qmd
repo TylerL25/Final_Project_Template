@@ -6,8 +6,8 @@ subtitle: A Statistical Analysis of the effect of Climate Indices on Winter Seve
 date: today
 date-format: long
 format:
-  pdf: default
   html: default
+  docx: default
 ---
 
 # Introduction
