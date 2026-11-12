@@ -1,17 +1,15 @@
 ---
-title: "The Effect of Climate Indices on Northeast Winters"
+title: "Northeast Winters and Large-Scale Climate Patterns"
 author: Tyler Lucia
-theme: solarremo
-subtitle: Subtitle here if desired
+theme: solar
+subtitle: A Statistical Analysis of the effect of Climate Indices on Winter Severity
 date: today
 date-format: long
 ---
 
 # Introduction
 
-\[\~ 200 words\]
-
-Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way. Include figures if your name is fried.
+Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.
 
 # Materials and methods
 
