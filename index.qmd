@@ -5,6 +5,9 @@ theme: solar
 subtitle: A Statistical Analysis of the effect of Climate Indices on Winter Severity
 date: today
 date-format: long
+format:
+  pdf: default
+  html: default
 ---
 
 # Introduction
@@ -125,14 +128,16 @@ snowfall_rasters_in<-snowfall_rasters*(100/2.54)*10
 ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average Daily Snowfall in January 1995")+
-  scale_fill_continuous(name="Snowfall (in)",palette = c("skyblue1","blue","purple1","pink2"))+
+  scale_fill_continuous(name="Snowfall (in)",
+                        palette = c("skyblue1","blue","purple1","pink2"))+
   theme(
     panel.background = element_blank()
   )
 ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average 2-meter Temperature in January 1995")+
-  scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
+  scale_fill_continuous(name="Temperature (°F)",
+                        palette = c("purple2","blue","cyan3","green4"))+
   theme(
     panel.background = element_blank()
   )
@@ -160,7 +165,8 @@ ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
                position = position_nudge(x=-.1,y=.2),
                color="white")+
   labs(title = "Average 2-meter Temperature in January 1995")+
-  scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
+  scale_fill_continuous(name="Temperature (°F)",
+                        palette = c("purple2","blue","cyan3","green4"))+
   theme(
     panel.background = element_blank()
   )
@@ -233,9 +239,15 @@ snow_dates_tot.df<-snow_dates.df|>
 ```{r}
 nao.raw<-nao.raw|>
   filter(Year>=1995)
-nao<-pivot_longer(nao.raw,cols = month.name[],values_to = "nao_index",names_to = "month")
+nao<-pivot_longer(nao.raw,
+                  cols = month.name[],
+                  values_to = "nao_index",
+                  names_to = "month")
 nao<-nao|>
-  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  filter(month=="January"
+         |month=="February"
+         |month=="November"&Year<2026
+         |month=="December"&Year<2026)|>
   mutate(
     monthcode=case_when(
       month=="January"~1,
@@ -256,9 +268,15 @@ nao.date.clean<-nao.date|>
 ```{r}
 tna.raw<-tna.raw|>
   filter(Year>=1995)
-tna<-pivot_longer(tna.raw,cols = month.name[],values_to = "tna_index",names_to = "month")
+tna<-pivot_longer(tna.raw,
+                  cols = month.name[],
+                  values_to = "tna_index",
+                  names_to = "month")
 tna<-tna|>
-  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  filter(month=="January"
+         |month=="February"
+         |month=="November"&Year<2026
+         |month=="December"&Year<2026)|>
   mutate(
     monthcode=case_when(
       month=="January"~1,
@@ -278,9 +296,15 @@ tna.date.clean<-tna.date|>
 ```{r}
 pna.raw<-pna.raw|>
   filter(Year>=1995)
-pna<-pivot_longer(pna.raw,cols = month.name[],values_to = "pna_index",names_to = "month")
+pna<-pivot_longer(pna.raw,
+                  cols = month.name[],
+                  values_to = "pna_index",
+                  names_to = "month")
 pna<-pna|>
-  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  filter(month=="January"
+         |month=="February"
+         |month=="November"&Year<2026
+         |month=="December"&Year<2026)|>
   mutate(
     monthcode=case_when(
       month=="January"~1,
@@ -300,9 +324,15 @@ pna.date.clean<-pna.date|>
 ```{r}
 soi.raw<-soi.raw|>
   filter(Year>=1995)
-soi<-pivot_longer(soi.raw,cols = month.name[],values_to = "soi_index",names_to = "month")
+soi<-pivot_longer(soi.raw,
+                  cols = month.name[],
+                  values_to = "soi_index",
+                  names_to = "month")
 soi<-soi|>
-  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  filter(month=="January"
+         |month=="February"
+         |month=="November"&Year<2026
+         |month=="December"&Year<2026)|>
   mutate(
     monthcode=case_when(
       month=="January"~1,
