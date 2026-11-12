@@ -16,14 +16,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The Effect of Climate Indices on Northeast Winters",
+    "title": "Northeast Winters and Large-Scale Climate Patterns",
     "section": "",
-    "text": "[~ 200 words]\nClearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way. Include figures if your name is fried."
+    "text": "Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known."
   },
   {
     "objectID": "index.html#download-and-clean-all-required-data",
     "href": "index.html#download-and-clean-all-required-data",
-    "title": "The Effect of Climate Indices on Northeast Winters",
+    "title": "Northeast Winters and Large-Scale Climate Patterns",
     "section": "Download and clean all required data",
     "text": "Download and clean all required data\n\nnao.raw&lt;-read.csv(file=\"data/NAO_index.txt\",\n                  sep=\"\",\n                  col.names = c(\"Year\",month.name[]),\n                  header=TRUE)\nsoi.raw&lt;-read.csv(file=\"data/SOI_index.txt\",\n                  sep = \"\",\n                  header=TRUE,\n                  col.names = c(\"Year\",month.name[]))\npna.raw&lt;-read.csv(file=\"data/PNA_index.txt\",\n                  sep = \"\",\n                  header=TRUE,\n                  col.names = c(\"Year\",month.name[]))\ntna.raw&lt;-read.csv(file=\"data/TNA_index.txt\",\n                  sep = \"\",\n                  header=TRUE,\n                  col.names = c(\"Year\",month.name[]))\n\n\n#nc_open(\"data/8f41d76f03dd447542e37b1129c926.nc\")\n\nstates&lt;-states()\n\nsnowfall_rasters&lt;-rast(\"data/8f41d76f03dd447542e37b1129c926.nc\",subds=\"sf\")\n\ntemp_rasters&lt;-rast(\"data/8f41d76f03dd447542e37b1129c926.nc\",subds=\"t2m\")\nstate.trans&lt;-st_transform(states,crs=st_crs(snowfall_rasters))\nstate.trans&lt;-state.trans$geometry\nbbox_raster&lt;-st_as_sfc(st_bbox(snowfall_rasters))\nstate_bounds&lt;-st_intersection(bbox_raster,state.trans)\n\nChecking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster\n\ntemp_rasters_f&lt;-(temp_rasters-273.15)*(9/5)+32\nsnowfall_rasters_in&lt;-snowfall_rasters*(100/2.54)*10\n\nAdd any additional processing steps here."
   }
