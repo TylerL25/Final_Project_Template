@@ -9,33 +9,41 @@ date-format: long
 
 # Introduction
 
-Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.
+Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.These patterns are tracked through spatial patterns of different types of variables. ENSO and most indices are dependent on sea-surface temperature patterns, while smaller-scale indices such as the North Atlantic Oscillation (NAO) are dependent on changes in air pressure.These climate indices are quantifications of climate patterns that are typically standardized, such that a normal pattern has an index value of 0 and anomalous patterns are assigned a negative or positive value. A positive ENSO phase (El Niño) typically brings wetter conditions to the Southwestern United States and warmer and drier conditions to Northeast, while a negative ENSO phase (La Niña) brings the opposite weather conditions.
 
-# Materials and methods
+Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.
 
-\[\~ 200 words\]
+## Project Goals
 
-Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.
+1. Determine if relationships exist between climate indices and winter weather severity
+2. Identify any correlation between relevant climate indices
+3. Determine if certain climate indices disproportionately affect areas that are prone Lake Effect snow
 
-Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.
+# Methodology
 
-Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g. Figshare) so that others are able to re-run your code.
+## Data Sources
 
-You can do bullets like this:
+Two publicly available datasets were obtained to complete required data analysis:
 
--   The first most important thing
--   The second most important thing
--   The third most important thing
+-Climate Indices: Monthly Atmospheric and Ocean Time Series
+-ERA5 Climate Reanalysis Data 
 
-You can do numbers like this:
+The climate index data, provided by the NOAA Physical Sciences Laboratory, provides a list of important climate indices that have been recorded monthly since 1950. Each entry on the list provides a link to a standalone table with each recorded index value as an entry. Columns organize the values by month, while rows represent years. 
 
-1.  The first most important thing
-2.  The second most important thing
-3.  The third most important thing
+Four different indices were pulled from this website to represent the four corners of the contiguous United States:
 
-See <http://rmarkdown.rstudio.com/> for all the amazing things you can do.
+-Tropical North Atlantic Index (TNA) 
+-North Atlantic Oscillation (NAO)
+-Pacific North American Pattern (PNA)
+-Pacific Oscillation Index (SOI)
 
-Here's my first code chunk.
+The ERA5 Climate Reanalysis data is available through the Climate Data Store from the European Centre for Medium Range Weather Forecasts (ECMWF). Although this dataset is publicly available, registration for a free account is required to download data. All reanalysis data from the Climate Data Store was derived from the ECMWF weather model, which was used to interpret and model past observational weather conditions. Data that was downloaded for this study are for two weather variables, average two-meter air temperature and average snowfall. In order to match the temporal resolution of the climate indices, the variables chosen were monthly averages, calculated over daily averages. The past thirty winters were selected for this analysis, including years from 1995 to 2026 and the months of November, December, January, and February. The downloaded data was contained in one netCDF file, and each raster has a spatial resolution of 0.1°× 0.1°. The extent of each raster was specified to be between longitudes -84°W and -74°W and between latitudes 39°N and 45°N to cover the study area.
+
+## R Methods
+
+
+
+
 
 
 ```{r}
@@ -49,9 +57,6 @@ Here's my first code chunk.
 #install.packages("tigris")
 ```
 
-Refer to output in your narrative like this: .
-
-Load any required packages in a code chunk (you may need to install some packages):
 
 ```{r, message=F, warning=F}
 library(dplyr)
@@ -65,7 +70,6 @@ library(tigris)
 library(lubridate)
 ```
 
-## Download and clean all required data
 
 ```{r}
 #| message: false
@@ -115,15 +119,7 @@ temp_rasters_f<-(temp_rasters-273.15)*(9/5)+32
 snowfall_rasters_in<-snowfall_rasters*(100/2.54)*10
 ```
 
-Add any additional processing steps here.
 
-# Results
-
-\[\~200 words\]
-
-Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.
-
-Show tables, plots, etc. and describe them.
 
 ```{r}
 ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
