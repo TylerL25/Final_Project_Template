@@ -40,9 +40,13 @@ Here's my first code chunk.
 
 
 ```{r}
+#| message: false
+#| warning: false
 install.packages("ncdf4")
 install.packages("rasterVis")
 install.packages("tidyterra")
+install.packages("rnaturalearth")
+install.packages("tigris")
 ```
 
 Refer to output in your narrative like this: .
@@ -57,7 +61,8 @@ library(terra)
 library(sf)
 library(rasterVis)
 library(tidyterra)
-
+library(tigris)
+library(lubridate)
 ```
 
 ## Download and clean all required data
@@ -92,12 +97,17 @@ tna.raw<-read.csv(file="data/TNA_index.txt",
 
 #nc_open("data/8f41d76f03dd447542e37b1129c926.nc")
 
+states<-states()
+
 snowfall_rasters<-rast("data/8f41d76f03dd447542e37b1129c926.nc",subds="sf")
 
 temp_rasters<-rast("data/8f41d76f03dd447542e37b1129c926.nc",subds="t2m")
+state.trans<-st_transform(states,crs=st_crs(snowfall_rasters))
+state.trans<-state.trans$geometry
+bbox_raster<-st_as_sfc(st_bbox(snowfall_rasters))
+state_bounds<-st_intersection(bbox_raster,state.trans)
 
-plot(snowfall_rasters$sf_126)
-plot(temp_rasters$t2m_126)
+
 ```
 Checking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster 
 ```{r}
@@ -117,12 +127,14 @@ Show tables, plots, etc. and describe them.
 
 ```{r}
 ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
+  geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average Daily Snowfall in January 1995")+
   scale_fill_continuous(name="Snowfall (in)",palette = c("skyblue1","blue","purple1","pink2"))+
   theme(
     panel.background = element_blank()
   )
 ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
+  geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average 2-meter Temperature in January 1995")+
   scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
   theme(
@@ -138,14 +150,19 @@ cities<-cbind(buffalo,toronto,pittsburgh,philadelphia)
 cities.df<-data.frame(t(cities))
 colnames(cities.df)<-c("City","lon","lat")
 cities.sf<-st_as_sf(cities.df,coords=c("lon","lat"),crs=4326)
+cities.sf<-st_transform(cities.sf,st_crs(snowfall_rasters))
 ```
 
 ```{r}
+#| message: false
+#| warning: false
 ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
-  geom_sf(data=cities.sf,size=2)+
+  geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="black")+
+  geom_sf(data=cities.sf,size=2,color="white")+
   geom_sf_text(data=cities.sf,
                aes(label = City),
-               position = position_nudge(x=0,y=.2))+
+               position = position_nudge(x=-.1,y=.2),
+               color="white")+
   labs(title = "Average 2-meter Temperature in January 1995")+
   scale_fill_continuous(name="Temperature (°F)",palette = c("purple2","blue","cyan3","green4"))+
   theme(
@@ -156,10 +173,185 @@ ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
 ### Dygraphs Example
 
 ```{r}
-#library(dygraphs)
-#dygraph(nhtemp, main = "New Haven Temperatures") |> 
-  #dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01")) 
+extract_temps<-extract(temp_rasters_f,cities.sf,df=TRUE)
+extract_temps<-extract_temps|>
+  select(!ID)
+extract_temps<-t(extract_temps)
+colnames(extract_temps)<-c("Buffalo","Toronto","Pittsburgh","Philadelphia")
+years=c(rep(1995:2025,each=4),2026,2026)
+months=c(rep(c(1,2,11,12),times=31),1,2)
+temp_dates<-cbind(extract_temps,years,months)
+temp_dates.df<-data.frame(temp_dates)
+temp_dates.df<-temp_dates.df|>
+  mutate(
+    Buffalo=as.numeric(Buffalo),
+    Toronto=as.numeric(Toronto),
+    Pittsburgh=as.numeric(Pittsburgh),
+    Philadelphia=as.numeric(Pittsburgh),
+    Date=make_date(year=years,month=months)
+  )
 ```
+
+```{r}
+extract_snow<-extract(snowfall_rasters_in,cities.sf,df=TRUE)
+extract_snow<-extract_snow|>
+  select(!ID)
+extract_snow<-t(extract_snow)
+colnames(extract_snow)<-c("Buffalo","Toronto","Pittsburgh","Philadelphia")
+
+snow_dates<-cbind(extract_snow,years,months)
+snow_dates.df<-data.frame(snow_dates)
+snow_dates.df<-snow_dates.df|>
+  mutate(
+    Buffalo=as.numeric(Buffalo),
+    Toronto=as.numeric(Toronto),
+    Pittsburgh=as.numeric(Pittsburgh),
+    Philadelphia=as.numeric(Pittsburgh),
+    Date=make_date(year=years,month=months)
+  )
+snow_dates_tot.df<-snow_dates.df|>
+  mutate(
+    Buffalo=case_when(
+      months==1 | months==12~Buffalo*31,
+      months==11~Buffalo*30,
+      months==2~Buffalo*28
+    ),
+    Toronto=case_when(
+      months==1 | months==12~Toronto*31,
+      months==11~Toronto*30,
+      months==2~Toronto*28
+    ),
+    Pittsburgh=case_when(
+      months==1 | months==12~Pittsburgh*31,
+      months==11~Pittsburgh*30,
+      months==2~Pittsburgh*28
+    ),
+    Philadelphia=case_when(
+      months==1 | months==12~Philadelphia*31,
+      months==11~Philadelphia*30,
+      months==2~Philadelphia*28
+    )
+  )
+```
+
+```{r}
+nao.raw<-nao.raw|>
+  filter(Year>=1995)
+nao<-pivot_longer(nao.raw,cols = month.name[],values_to = "nao_index",names_to = "month")
+nao<-nao|>
+  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  mutate(
+    monthcode=case_when(
+      month=="January"~1,
+      month=="February"~2,
+      month=="November"~11,
+      month=="December"~12
+    )
+  )
+nao.date<-nao|>
+  mutate(
+    date=make_date(year = Year,month = monthcode)
+  )
+nao.date.clean<-nao.date|>
+  select(date,nao_index)
+
+```
+
+```{r}
+tna.raw<-tna.raw|>
+  filter(Year>=1995)
+tna<-pivot_longer(tna.raw,cols = month.name[],values_to = "tna_index",names_to = "month")
+tna<-tna|>
+  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  mutate(
+    monthcode=case_when(
+      month=="January"~1,
+      month=="February"~2,
+      month=="November"~11,
+      month=="December"~12
+    )
+  )
+tna.date<-tna|>
+  mutate(
+    date=make_date(year = Year,month = monthcode)
+  )
+tna.date.clean<-tna.date|>
+  select(date,tna_index)
+```
+
+```{r}
+pna.raw<-pna.raw|>
+  filter(Year>=1995)
+pna<-pivot_longer(pna.raw,cols = month.name[],values_to = "pna_index",names_to = "month")
+pna<-pna|>
+  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  mutate(
+    monthcode=case_when(
+      month=="January"~1,
+      month=="February"~2,
+      month=="November"~11,
+      month=="December"~12
+    )
+  )
+pna.date<-pna|>
+  mutate(
+    date=make_date(year = Year,month = monthcode)
+  )
+pna.date.clean<-pna.date|>
+  select(date,pna_index)
+```
+
+```{r}
+soi.raw<-soi.raw|>
+  filter(Year>=1995)
+soi<-pivot_longer(soi.raw,cols = month.name[],values_to = "soi_index",names_to = "month")
+soi<-soi|>
+  filter(month=="January"|month=="February"|month=="November"&Year<2026|month=="December"&Year<2026)|>
+  mutate(
+    monthcode=case_when(
+      month=="January"~1,
+      month=="February"~2,
+      month=="November"~11,
+      month=="December"~12
+    )
+  )
+soi.date<-soi|>
+  mutate(
+    date=make_date(year = Year,month = monthcode)
+  )
+soi.date.clean<-soi.date|>
+  select(date,soi_index)
+```
+
+```{r}
+soi.tna<-inner_join(soi.date.clean,tna.date.clean,join_by(date))
+nao.pna<-inner_join(nao.date.clean,pna.date.clean,join_by(date))
+indices<-inner_join(soi.tna,nao.pna,join_by(date))
+```
+
+```{r}
+snow.clean<-snow_dates_tot.df|>
+  mutate(
+    date=Date,
+    Buffalo_s=as.double(Buffalo),
+    Toronto_s=as.double(Toronto),
+    Pittsburgh_s=as.double(Pittsburgh),
+    Philadelphia_s=as.double(Philadelphia)
+  )|>
+  select(date,Buffalo_s,Toronto_s,Pittsburgh_s,Philadelphia_s)
+
+temp.clean<-temp_dates.df|>
+  mutate(
+    date=Date
+  )|>
+  select(date,Buffalo,Toronto,Pittsburgh,Philadelphia)
+```
+
+```{r}
+weather<-inner_join(snow.clean,temp.clean,join_by(date))
+complete_table<-inner_join(weather,indices,join_by(date))
+```
+
 
 # Conclusions
 
