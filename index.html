@@ -189,30 +189,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.</p>
-</section>
-<section id="materials-and-methods" class="level1">
-<h1>Materials and methods</h1>
-<p>[~ 200 words]</p>
-<p>Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.</p>
-<p>Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.</p>
-<p>Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g.&nbsp;Figshare) so that others are able to re-run your code.</p>
-<p>You can do bullets like this:</p>
-<ul>
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
-</ul>
-<p>You can do numbers like this:</p>
+<p>Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.These patterns are tracked through spatial patterns of different types of variables. ENSO and most indices are dependent on sea-surface temperature patterns, while smaller-scale indices such as the North Atlantic Oscillation (NAO) are dependent on changes in air pressure.These climate indices are quantifications of climate patterns that are typically standardized, such that a normal pattern has an index value of 0 and anomalous patterns are assigned a negative or positive value. A positive ENSO phase (El Niño) typically brings wetter conditions to the Southwestern United States and warmer and drier conditions to Northeast, while a negative ENSO phase (La Niña) brings the opposite weather conditions.</p>
+<p>Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.</p>
+<section id="project-goals" class="level2">
+<h2 class="anchored" data-anchor-id="project-goals">Project Goals</h2>
 <ol type="1">
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
+<li>Determine if relationships exist between climate indices and winter weather severity</li>
+<li>Identify any correlation between relevant climate indices</li>
+<li>Determine if certain climate indices disproportionately affect areas that are prone Lake Effect snow</li>
 </ol>
-<p>See <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a> for all the amazing things you can do.</p>
-<p>Here’s my first code chunk.</p>
-<p>Refer to output in your narrative like this: .</p>
-<p>Load any required packages in a code chunk (you may need to install some packages):</p>
+</section>
+</section>
+<section id="methodology" class="level1">
+<h1>Methodology</h1>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<p>Two publicly available datasets were obtained to complete required data analysis:</p>
+<p>-Climate Indices: Monthly Atmospheric and Ocean Time Series -ERA5 Climate Reanalysis Data</p>
+<p>The climate index data, provided by the NOAA Physical Sciences Laboratory, provides a list of important climate indices that have been recorded monthly since 1950. Each entry on the list provides a link to a standalone table with each recorded index value as an entry. Columns organize the values by month, while rows represent years.</p>
+<p>Four different indices were pulled from this website to represent the four corners of the contiguous United States:</p>
+<p>-Tropical North Atlantic Index (TNA) -North Atlantic Oscillation (NAO) -Pacific North American Pattern (PNA) -Pacific Oscillation Index (SOI)</p>
+<p>The ERA5 Climate Reanalysis data is available through the Climate Data Store from the European Centre for Medium Range Weather Forecasts (ECMWF). Although this dataset is publicly available, registration for a free account is required to download data. All reanalysis data from the Climate Data Store was derived from the ECMWF weather model, which was used to interpret and model past observational weather conditions. Data that was downloaded for this study are for two weather variables, average two-meter air temperature and average snowfall. In order to match the temporal resolution of the climate indices, the variables chosen were monthly averages, calculated over daily averages. The past thirty winters were selected for this analysis, including years from 1995 to 2026 and the months of November, December, January, and February. The downloaded data was contained in one netCDF file, and each raster has a spatial resolution of 0.1°× 0.1°. The extent of each raster was specified to be between longitudes -84°W and -74°W and between latitudes 39°N and 45°N to cover the study area.</p>
+</section>
+<section id="r-methods" class="level2">
+<h2 class="anchored" data-anchor-id="r-methods">R Methods</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -224,8 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigris)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="download-and-clean-all-required-data" class="level2">
-<h2 class="anchored" data-anchor-id="download-and-clean-all-required-data">Download and clean all required data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/NAO_index.txt"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep=</span><span class="st">""</span>,</span>
@@ -262,14 +260,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>temp_rasters_f<span class="ot">&lt;-</span>(temp_rasters<span class="fl">-273.15</span>)<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>snowfall_rasters_in<span class="ot">&lt;-</span>snowfall_rasters<span class="sc">*</span>(<span class="dv">100</span><span class="sc">/</span><span class="fl">2.54</span>)<span class="sc">*</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Add any additional processing steps here.</p>
-</section>
-</section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<p>[~200 words]</p>
-<p>Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.</p>
-<p>Show tables, plots, etc. and describe them.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>snowfall_rasters_in<span class="sc">$</span>sf_1)<span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"grey20"</span>)<span class="sc">+</span></span>
@@ -504,6 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>weather<span class="ot">&lt;-</span><span class="fu">inner_join</span>(snow.clean,temp.clean,<span class="fu">join_by</span>(date))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>complete_table<span class="ot">&lt;-</span><span class="fu">inner_join</span>(weather,indices,<span class="fu">join_by</span>(date))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
 </section>
 </section>
 <section id="conclusions" class="level1">
