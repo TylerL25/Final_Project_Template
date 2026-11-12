@@ -1,6 +1,7 @@
 ---
-title: "My Final Project Template"
-author: Your name here
+title: "The Effect of Climate Indices on Northeast Winters"
+author: Tyler Lucia
+theme: solarremo
 subtitle: Subtitle here if desired
 date: today
 date-format: long
@@ -40,13 +41,14 @@ Here's my first code chunk.
 
 
 ```{r}
+#| echo: false
 #| message: false
 #| warning: false
-install.packages("ncdf4")
-install.packages("rasterVis")
-install.packages("tidyterra")
-install.packages("rnaturalearth")
-install.packages("tigris")
+#install.packages("ncdf4")
+#install.packages("rasterVis")
+#install.packages("tidyterra")
+#install.packages("rnaturalearth")
+#install.packages("tigris")
 ```
 
 Refer to output in your narrative like this: .
