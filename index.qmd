@@ -7,14 +7,14 @@ date: today
 date-format: long
 format:
   html: default
-  docx: default
+  pdf: default
 ---
 
 # Introduction
 
 Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known, especially in winter (NOAA, 2026). These patterns are tracked through spatial patterns of different types of variables. ENSO and most indices are dependent on sea-surface temperature patterns, while smaller-scale indices such as the North Atlantic Oscillation (NAO) are dependent on changes in air pressure. These climate indices are quantifications of climate patterns that are typically standardized, such that a normal pattern has an index value of 0 and anomalous patterns are assigned a negative or positive value. A positive ENSO phase (El Niño) typically brings wetter conditions to the Southwestern United States and warmer and drier conditions to Northeast, while a negative ENSO phase (La Niña) brings the opposite weather conditions.
 
-![Typical El Nino effects in the United States during winter. Source: [NOAA](https://www.noaa.gov/understanding-el-nino)](data/GRAPHIC-062026-Jetstream-El-Nino-impacts-in-winter-NOAA-credit(1).png){width=80%}
+![Typical El Nino effects in the United States during winter. Source: [NOAA](https://www.noaa.gov/understanding-el-nino)](data/GRAPHIC-062026-Jetstream-El-Nino-impacts-in-winter-NOAA-credit(1).png){width="80%"}
 
 Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. In addition, certain combinations of indices may lead to different effects, such as the snowy winter of 2009/2010 occuring due to a negative NAO and positive ENSO combination (Seager et al., 2010). This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.
 
@@ -23,7 +23,6 @@ Though ENSO is more significant than NAO, areas further away from the Pacific oc
 1.  Determine if relationships exist between climate indices and winter weather severity
 2.  Identify any correlation between relevant climate indices
 3.  Determine if certain climate indices disproportionately affect areas that are prone lake effect snow
-4.  
 
 # Methodology
 
@@ -114,7 +113,7 @@ temp_rasters<-rast("data/8f41d76f03dd447542e37b1129c926.nc",subds="t2m")
 
 ```
 
-The metadata also reveals that the 2-meter temperature rasters are in Kelvin (K) and the snowfall rasters are in meters (m) of liquid water. Using basic arithmetic, the temperature rasters were converted into degrees Fahrenheit and the snowfall rasters were converted into inches of snow, assuming a 10:1 snow ratio where 1 inch of liquid water is equal to 10 inches of snow. The 10:1 snow ratio is   typically used by meteorologists in most snow forecasts (Roebber et al., 2003).
+The metadata also reveals that the 2-meter temperature rasters are in Kelvin (K) and the snowfall rasters are in meters (m) of liquid water. Using basic arithmetic, the temperature rasters were converted into degrees Fahrenheit and the snowfall rasters were converted into inches of snow, assuming a 10:1 snow ratio where 1 inch of liquid water is equal to 10 inches of snow. The 10:1 snow ratio is typically used by meteorologists in most snow forecasts (Roebber et al., 2003).
 
 ```{r}
 temp_rasters_f<-(temp_rasters-273.15)*(9/5)+32
@@ -475,6 +474,6 @@ knitr::kable(tibble(summary_table),caption="Average 4-Month Monthly Snowfall")
 
 National Oceanic And Atmospheric Administration. (2026). *Understanding El Niño and ENSO*. <https://www.noaa.gov/understanding-el-nino>
 
-Roebber, P. J., Bruening, S. L., Schultz, D. M., & Cortinas , J. V., Jr. (2003). Improving Snowfall Forecasting by Diagnosing Snow Density. Weather and Forecasting, 18(2), 264-287. <https://doi.org/10.1175/1520-0434(2003)018<0264:ISFBDS>2.0.CO;2>
+Roebber, P. J., Bruening, S. L., Schultz, D. M., & Cortinas , J. V., Jr. (2003). Improving Snowfall Forecasting by Diagnosing Snow Density. Weather and Forecasting, 18(2), 264-287. [https://doi.org/10.1175/1520-0434(2003)018\<0264:ISFBDS\>2.0.C):2](https://doi.org/10.1175/1520-0434(2003)018%3C0264:ISFBDS>2.0.CO;2){.uri}
 
 Seager, R., Y. Kushnir, J. Nakamura, M. Ting, and N. Naik. (2010). Northern Hemisphere winter snow anomalies: ENSO, NAO and the winter of 2009/10. *Geophys. Res. Lett., 37*(14), Article L14703.<https://doi.org/10.1029/2010GL043830>
