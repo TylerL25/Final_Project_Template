@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tyler Lucia">
-<meta name="dcterms.date" content="2026-11-12">
+<meta name="dcterms.date" content="2026-11-13">
 
-<title>Northeast Winters and Large-Scale Climate Patterns – GEO511_FinalProject</title>
+<title>Northeast Winters and Large-Scale Climate Patterns</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-00cc6c9d588de4e026300d340bd8126e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8a800487368d707a6c21a65669de58b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GEO511_FinalProject</span>
+    <span class="navbar-title">Northeast Winters and Large-Scale Climate Patterns</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2026</p>
+      <p class="date">November 13, 2026</p>
     </div>
   </div>
   
@@ -191,14 +191,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known.These patterns are tracked through spatial patterns of different types of variables. ENSO and most indices are dependent on sea-surface temperature patterns, while smaller-scale indices such as the North Atlantic Oscillation (NAO) are dependent on changes in air pressure.These climate indices are quantifications of climate patterns that are typically standardized, such that a normal pattern has an index value of 0 and anomalous patterns are assigned a negative or positive value. A positive ENSO phase (El Niño) typically brings wetter conditions to the Southwestern United States and warmer and drier conditions to Northeast, while a negative ENSO phase (La Niña) brings the opposite weather conditions.</p>
-<p>Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.</p>
+<p>Although long-term climate trends are not as noticeable as day-to-day weather conditions, they affect long-term patterns of day-to-day weather significantly. Several climate patterns affect the weather in the United States, with the El Niño Southern Oscillation (ENSO) cycle being the most impactful and well-known, especially in winter (NOAA, 2026). These patterns are tracked through spatial patterns of different types of variables. ENSO and most indices are dependent on sea-surface temperature patterns, while smaller-scale indices such as the North Atlantic Oscillation (NAO) are dependent on changes in air pressure. These climate indices are quantifications of climate patterns that are typically standardized, such that a normal pattern has an index value of 0 and anomalous patterns are assigned a negative or positive value. A positive ENSO phase (El Niño) typically brings wetter conditions to the Southwestern United States and warmer and drier conditions to Northeast, while a negative ENSO phase (La Niña) brings the opposite weather conditions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/GRAPHIC-062026-Jetstream-El-Nino-impacts-in-winter-NOAA-credit(1).png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Typical El Nino effects in the United States during winter. Source: <a href="https://www.noaa.gov/understanding-el-nino">NOAA</a></figcaption>
+</figure>
+</div>
+<p>Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. In addition, certain combinations of indices may lead to different effects, such as the snowy winter of 2009/2010 occuring due to a negative NAO and positive ENSO combination (Seager et al., 2010). This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.</p>
 <section id="project-goals" class="level2">
 <h2 class="anchored" data-anchor-id="project-goals">Project Goals</h2>
 <ol type="1">
 <li>Determine if relationships exist between climate indices and winter weather severity</li>
 <li>Identify any correlation between relevant climate indices</li>
-<li>Determine if certain climate indices disproportionately affect areas that are prone Lake Effect snow</li>
+<li>Determine if certain climate indices disproportionately affect areas that are prone lake effect snow</li>
+<li></li>
 </ol>
 </section>
 </section>
@@ -207,14 +214,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-sources" class="level2">
 <h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
 <p>Two publicly available datasets were obtained to complete required data analysis:</p>
-<p>-Climate Indices: Monthly Atmospheric and Ocean Time Series -ERA5 Climate Reanalysis Data</p>
+<ul>
+<li>Climate Indices: Monthly Atmospheric and Ocean Time Series</li>
+<li>ERA5 Climate Reanalysis Data</li>
+</ul>
 <p>The climate index data, provided by the NOAA Physical Sciences Laboratory, provides a list of important climate indices that have been recorded monthly since 1950. Each entry on the list provides a link to a standalone table with each recorded index value as an entry. Columns organize the values by month, while rows represent years.</p>
 <p>Four different indices were pulled from this website to represent the four corners of the contiguous United States:</p>
-<p>-Tropical North Atlantic Index (TNA) -North Atlantic Oscillation (NAO) -Pacific North American Pattern (PNA) -Pacific Oscillation Index (SOI)</p>
-<p>The ERA5 Climate Reanalysis data is available through the Climate Data Store from the European Centre for Medium Range Weather Forecasts (ECMWF). Although this dataset is publicly available, registration for a free account is required to download data. All reanalysis data from the Climate Data Store was derived from the ECMWF weather model, which was used to interpret and model past observational weather conditions. Data that was downloaded for this study are for two weather variables, average two-meter air temperature and average snowfall. In order to match the temporal resolution of the climate indices, the variables chosen were monthly averages, calculated over daily averages. The past thirty winters were selected for this analysis, including years from 1995 to 2026 and the months of November, December, January, and February. The downloaded data was contained in one netCDF file, and each raster has a spatial resolution of 0.1°× 0.1°. The extent of each raster was specified to be between longitudes -84°W and -74°W and between latitudes 39°N and 45°N to cover the study area.</p>
+<ul>
+<li>Tropical North Atlantic Index (TNA)</li>
+<li>North Atlantic Oscillation (NAO)</li>
+<li>Pacific North American Pattern (PNA)</li>
+<li>Pacific Oscillation Index (SOI)</li>
+</ul>
+<p>The ERA5 Climate Reanalysis data is available through the Climate Data Store from the European Centre for Medium Range Weather Forecasts (ECMWF). Although this dataset is publicly available, registration for a free account is required to download data. All reanalysis data from the Climate Data Store was derived from the ECMWF weather model, which was used to interpret and model past observational weather conditions.</p>
+<p>ERA5 Data that was downloaded for this study are for two weather variables, average two-meter air temperature and average snowfall. In order to match the temporal resolution of the climate indices, the variables chosen were monthly averages, calculated over daily averages. The past thirty winters were selected for this analysis, including years from 1995 to 2026 and the months of November, December, January, and February. The downloaded data was contained in one netCDF file, and each raster has a spatial resolution of 0.1°× 0.1°. The extent of each raster was specified to be between longitudes -84°W and -74°W and between latitudes 39°N and 45°N to cover the study area.</p>
 </section>
 <section id="r-methods" class="level2">
 <h2 class="anchored" data-anchor-id="r-methods">R Methods</h2>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
+<p>All required packages were loaded into the work space. <code>ncdf4</code>,<code>rasterVis</code>,<code>tidyterra</code>, and <code>tigris</code> needed to be intsalled first before being loaded in.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -226,6 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigris)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The four climate index datasets found online were copied directly into .txt files. Each file was then read into R using <code>read.csv()</code> and loaded in as distinct objects with the correct column names.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"data/NAO_index.txt"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep=</span><span class="st">""</span>,</span>
@@ -244,240 +264,194 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header=</span><span class="cn">TRUE</span>,</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>,month.name[]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The metadata fron the downloaded netCDF file was examined using <code>nc_open()</code> to look for the correct sub-directory names that distinguish the snowfall and temperature rasters. Both sets of files were then converted into rasters using the sub-directory information.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nc_open("data/8f41d76f03dd447542e37b1129c926.nc")</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>states<span class="ot">&lt;-</span><span class="fu">states</span>()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"sf"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"t2m"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>state.trans<span class="ot">&lt;-</span><span class="fu">st_transform</span>(states,<span class="at">crs=</span><span class="fu">st_crs</span>(snowfall_rasters))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>state.trans<span class="ot">&lt;-</span>state.trans<span class="sc">$</span>geometry</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>bbox_raster<span class="ot">&lt;-</span><span class="fu">st_as_sfc</span>(<span class="fu">st_bbox</span>(snowfall_rasters))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>state_bounds<span class="ot">&lt;-</span><span class="fu">st_intersection</span>(bbox_raster,state.trans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>snowfall_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"sf"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>temp_rasters<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"data/8f41d76f03dd447542e37b1129c926.nc"</span>,<span class="at">subds=</span><span class="st">"t2m"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Checking the metadata of both rasters reveals that the units for the 2-meter temperature raster and the snowfall raster</p>
+<p>The metadata also reveals that the 2-meter temperature rasters are in Kelvin (K) and the snowfall rasters are in meters (m) of liquid water. Using basic arithmetic, the temperature rasters were converted into degrees Fahrenheit and the snowfall rasters were converted into inches of snow, assuming a 10:1 snow ratio where 1 inch of liquid water is equal to 10 inches of snow. The 10:1 snow ratio is typically used by meteorologists in most snow forecasts (Roebber et al., 2003).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>temp_rasters_f<span class="ot">&lt;-</span>(temp_rasters<span class="fl">-273.15</span>)<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>snowfall_rasters_in<span class="ot">&lt;-</span>snowfall_rasters<span class="sc">*</span>(<span class="dv">100</span><span class="sc">/</span><span class="fl">2.54</span>)<span class="sc">*</span><span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><code>states()</code> from the <code>tigris</code> package was used to create state boundaries to establish a frame-of-reference for the both rasters. This polygon feature includes the entire United States and territories, so it was clipped to the a polygon representing the bounding box of the rasters.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>snowfall_rasters_in<span class="sc">$</span>sf_1)<span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"grey20"</span>)<span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Daily Snowfall in January 1995"</span>)<span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Snowfall (in)"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"skyblue1"</span>,<span class="st">"blue"</span>,<span class="st">"purple1"</span>,<span class="st">"pink2"</span>))<span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>states<span class="ot">&lt;-</span><span class="fu">states</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>state.trans<span class="ot">&lt;-</span><span class="fu">st_transform</span>(states,<span class="at">crs=</span><span class="fu">st_crs</span>(snowfall_rasters))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>state.trans<span class="ot">&lt;-</span>state.trans<span class="sc">$</span>geometry</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>bbox_raster<span class="ot">&lt;-</span><span class="fu">st_as_sfc</span>(<span class="fu">st_bbox</span>(snowfall_rasters))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>state_bounds<span class="ot">&lt;-</span><span class="fu">st_intersection</span>(bbox_raster,state.trans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
+<p>Both the snowfall and temperature rasters were then plotted using <code>ggplot()</code> with the new states shapefile for January 1995, the first date available in the netCDF files.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>snowfall_rasters_in<span class="sc">$</span>sf_1)<span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"grey20"</span>)<span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>)<span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Daily Snowfall in January 1995"</span>)<span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Snowfall (in)"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"skyblue1"</span>,<span class="st">"blue"</span>,<span class="st">"purple1"</span>,<span class="st">"pink2"</span>))<span class="sc">+</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"grey20"</span>)<span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>)<span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Four cities were chosen to represent different areas of the Northeast:</p>
+<ul>
+<li>Buffalo, New York</li>
+<li>Toronto, Ontario</li>
+<li>Pittsburgh, Pennsylvania</li>
+<li>Philadelphia, Pennsylvania</li>
+</ul>
+<p>Although Buffalo and Toronto are in geographic proximity to each other, they were chosen as Buffalo often receives significant lake effect snow, where Toronto does not. Differences in snowfall between both cities would then mostly be attributed to lake-effect snow events.</p>
+<p>The cities and their coordinates were created as vectors, which were then combined into a spatial data frame. This dataframe was transformed to match the coordinate system of the netCDF rasters, WGS 84.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>buffalo<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="sc">-</span><span class="fl">78.88</span>,<span class="fl">42.89</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>toronto<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Toronto"</span>,<span class="sc">-</span><span class="fl">79.38</span>,<span class="fl">43.65</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pittsburgh<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Pittsburgh"</span>,<span class="sc">-</span><span class="fl">79.98</span>,<span class="fl">40.44</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>philadelphia<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Philadelphia"</span>, <span class="sc">-</span><span class="fl">75.16</span>,<span class="fl">39.96</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>cities<span class="ot">&lt;-</span><span class="fu">cbind</span>(buffalo,toronto,pittsburgh,philadelphia)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>cities.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">t</span>(cities))</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cities.df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"City"</span>,<span class="st">"lon"</span>,<span class="st">"lat"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>cities.sf<span class="ot">&lt;-</span><span class="fu">st_as_sf</span>(cities.df,<span class="at">coords=</span><span class="fu">c</span>(<span class="st">"lon"</span>,<span class="st">"lat"</span>),<span class="at">crs=</span><span class="dv">4326</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>cities.sf<span class="ot">&lt;-</span><span class="fu">st_transform</span>(cities.sf,<span class="fu">st_crs</span>(snowfall_rasters))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>buffalo<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="sc">-</span><span class="fl">78.88</span>,<span class="fl">42.89</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>toronto<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Toronto"</span>,<span class="sc">-</span><span class="fl">79.38</span>,<span class="fl">43.65</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pittsburgh<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Pittsburgh"</span>,<span class="sc">-</span><span class="fl">79.98</span>,<span class="fl">40.44</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>philadelphia<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Philadelphia"</span>, <span class="sc">-</span><span class="fl">75.16</span>,<span class="fl">39.96</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>cities<span class="ot">&lt;-</span><span class="fu">cbind</span>(buffalo,toronto,pittsburgh,philadelphia)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cities.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">t</span>(cities))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cities.df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"City"</span>,<span class="st">"lon"</span>,<span class="st">"lat"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>cities.sf<span class="ot">&lt;-</span><span class="fu">st_as_sf</span>(cities.df,<span class="at">coords=</span><span class="fu">c</span>(<span class="st">"lon"</span>,<span class="st">"lat"</span>),<span class="at">crs=</span><span class="dv">4326</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>cities.sf<span class="ot">&lt;-</span><span class="fu">st_transform</span>(cities.sf,<span class="fu">st_crs</span>(snowfall_rasters))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>To ensure the cities are in their correct locations, the spatial object was plotted on top of the temperature raster previously created.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>cities.sf,<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data=</span>cities.sf,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> City),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="sc">-</span>.<span class="dv">1</span>,<span class="at">y=</span>.<span class="dv">2</span>),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>)<span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_spatraster</span>(<span class="at">data=</span>temp_rasters_f<span class="sc">$</span>t2m_1)<span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>state_bounds,<span class="at">fill=</span><span class="cn">NA</span>,<span class="at">lwd=</span><span class="fl">0.7</span>,<span class="at">color=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>cities.sf,<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data=</span>cities.sf,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> City),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.8</span>,<span class="at">y=</span>.<span class="dv">3</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">size=</span><span class="fl">4.5</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2-meter Temperature in January 1995"</span>,<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>)<span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">name=</span><span class="st">"Temperature (°F)"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"purple2"</span>,<span class="st">"blue"</span>,<span class="st">"cyan3"</span>,<span class="st">"green4"</span>))<span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="dygraphs-example" class="level3">
-<h3 class="anchored" data-anchor-id="dygraphs-example">Dygraphs Example</h3>
+</section>
+<section id="weather-data-extraction-and-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="weather-data-extraction-and-formatting">Weather Data Extraction and Formatting</h3>
+<p>Temperature and snowfall values were extracted from each raster at the locations of the four cities, from January 1995 to February 2026 and put into tables. City names were re-added to each table, retaining the order of the cities that were used to extract raster values to ensure that values were assigned to the correct city names.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span><span class="fu">extract</span>(temp_rasters_f,cities.sf,<span class="at">df=</span><span class="cn">TRUE</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span>extract_temps<span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>ID)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span><span class="fu">t</span>(extract_temps)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(extract_temps)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="st">"Toronto"</span>,<span class="st">"Pittsburgh"</span>,<span class="st">"Philadelphia"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>years<span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1995</span><span class="sc">:</span><span class="dv">2025</span>,<span class="at">each=</span><span class="dv">4</span>),<span class="dv">2026</span>,<span class="dv">2026</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>months<span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">11</span>,<span class="dv">12</span>),<span class="at">times=</span><span class="dv">31</span>),<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>temp_dates<span class="ot">&lt;-</span><span class="fu">cbind</span>(extract_temps,years,months)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>temp_dates.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(temp_dates)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>temp_dates.df<span class="ot">&lt;-</span>temp_dates.df<span class="sc">|&gt;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">as.numeric</span>(Buffalo),</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">as.numeric</span>(Toronto),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date=</span><span class="fu">make_date</span>(<span class="at">year=</span>years,<span class="at">month=</span>months)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span><span class="fu">extract</span>(snowfall_rasters_in,cities.sf,<span class="at">df=</span><span class="cn">TRUE</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span>extract_snow<span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span><span class="fu">extract</span>(temp_rasters_f,cities.sf,<span class="at">df=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span>extract_temps<span class="sc">|&gt;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>ID)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span><span class="fu">t</span>(extract_snow)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(extract_snow)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="st">"Toronto"</span>,<span class="st">"Pittsburgh"</span>,<span class="st">"Philadelphia"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>extract_temps<span class="ot">&lt;-</span><span class="fu">t</span>(extract_temps)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(extract_temps)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="st">"Toronto"</span>,<span class="st">"Pittsburgh"</span>,<span class="st">"Philadelphia"</span>)</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>snow_dates<span class="ot">&lt;-</span><span class="fu">cbind</span>(extract_snow,years,months)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>snow_dates.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(snow_dates)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>snow_dates.df<span class="ot">&lt;-</span>snow_dates.df<span class="sc">|&gt;</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">as.numeric</span>(Buffalo),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">as.numeric</span>(Toronto),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date=</span><span class="fu">make_date</span>(<span class="at">year=</span>years,<span class="at">month=</span>months)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>snow_dates_tot.df<span class="ot">&lt;-</span>snow_dates.df<span class="sc">|&gt;</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">case_when</span>(</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">31</span>,</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">30</span>,</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">28</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">case_when</span>(</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">31</span>,</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">30</span>,</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">28</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">case_when</span>(</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">31</span>,</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">30</span>,</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">28</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">case_when</span>(</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">31</span>,</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">30</span>,</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">28</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span><span class="fu">extract</span>(snowfall_rasters_in,cities.sf,<span class="at">df=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span>extract_snow<span class="sc">|&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>ID)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>extract_snow<span class="ot">&lt;-</span><span class="fu">t</span>(extract_snow)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(extract_snow)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Buffalo"</span>,<span class="st">"Toronto"</span>,<span class="st">"Pittsburgh"</span>,<span class="st">"Philadelphia"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>When the temperate, snowfall, and climate index tables are eventually joined, they must be joined by the date. The weather tables have no dates assigned and are instead classified by raster number, from 1 to 126. As the rasters contain data from 1995 to 2026 and only include the months of January, February, November, and December, numeric year and month columns were created carefully using the <code>rep()</code> function, with the last two dates requiring manual entries for the 2026 data, since only January and February data were available as of November 2026.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span>nao.raw<span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year<span class="sc">&gt;=</span><span class="dv">1995</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>nao<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(nao.raw,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cols =</span> month.name[],</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to =</span> <span class="st">"nao_index"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names_to =</span> <span class="st">"month"</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>nao<span class="ot">&lt;-</span>nao<span class="sc">|&gt;</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month<span class="sc">==</span><span class="st">"January"</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"February"</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"November"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"December"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span>)<span class="sc">|&gt;</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthcode=</span><span class="fu">case_when</span>(</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"January"</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"February"</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"November"</span><span class="sc">~</span><span class="dv">11</span>,</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"December"</span><span class="sc">~</span><span class="dv">12</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>nao.date<span class="ot">&lt;-</span>nao<span class="sc">|&gt;</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year =</span> Year,<span class="at">month =</span> monthcode)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>nao.date.clean<span class="ot">&lt;-</span>nao.date<span class="sc">|&gt;</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,nao_index)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>years<span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1995</span><span class="sc">:</span><span class="dv">2025</span>,<span class="at">each=</span><span class="dv">4</span>),<span class="dv">2026</span>,<span class="dv">2026</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>months<span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">11</span>,<span class="dv">12</span>),<span class="at">times=</span><span class="dv">31</span>),<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>These new columns were then appended to the temperature and snowfall datasets. Using <code>tidyverse</code> functions, the snowfall and temperature values were converted from characters to numeric value types. A new column, “date”, was created using the <code>make_date()</code> function using values from the month and year columns in order to establish comparable date values for plotting purposes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tna.raw<span class="ot">&lt;-</span>tna.raw<span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year<span class="sc">&gt;=</span><span class="dv">1995</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>tna<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(tna.raw,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cols =</span> month.name[],</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to =</span> <span class="st">"tna_index"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names_to =</span> <span class="st">"month"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>tna<span class="ot">&lt;-</span>tna<span class="sc">|&gt;</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month<span class="sc">==</span><span class="st">"January"</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"February"</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"November"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"December"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span>)<span class="sc">|&gt;</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthcode=</span><span class="fu">case_when</span>(</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"January"</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"February"</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"November"</span><span class="sc">~</span><span class="dv">11</span>,</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"December"</span><span class="sc">~</span><span class="dv">12</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>tna.date<span class="ot">&lt;-</span>tna<span class="sc">|&gt;</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year =</span> Year,<span class="at">month =</span> monthcode)</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>tna.date.clean<span class="ot">&lt;-</span>tna.date<span class="sc">|&gt;</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,tna_index)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>temp_dates<span class="ot">&lt;-</span><span class="fu">cbind</span>(extract_temps,years,months)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>temp_dates.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(temp_dates)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>temp_dates.df<span class="ot">&lt;-</span>temp_dates.df<span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">as.numeric</span>(Buffalo),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">as.numeric</span>(Toronto),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year=</span>years,<span class="at">month=</span>months)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>snow_dates<span class="ot">&lt;-</span><span class="fu">cbind</span>(extract_snow,years,months)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>snow_dates.df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(snow_dates)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>snow_dates.df<span class="ot">&lt;-</span>snow_dates.df<span class="sc">|&gt;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">as.numeric</span>(Buffalo),</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">as.numeric</span>(Toronto),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">as.numeric</span>(Pittsburgh),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">as.numeric</span>(Philadelphia),</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year=</span>years,<span class="at">month=</span>months)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The snowfall values were converted from using average daily snowfall to average monthly snowfall by multiplying the snow values by the number of days in a given month using <code>dplyr</code> functions.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pna.raw<span class="ot">&lt;-</span>pna.raw<span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year<span class="sc">&gt;=</span><span class="dv">1995</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pna<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(pna.raw,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cols =</span> month.name[],</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to =</span> <span class="st">"pna_index"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names_to =</span> <span class="st">"month"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>pna<span class="ot">&lt;-</span>pna<span class="sc">|&gt;</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month<span class="sc">==</span><span class="st">"January"</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"February"</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"November"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"December"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span>)<span class="sc">|&gt;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthcode=</span><span class="fu">case_when</span>(</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"January"</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"February"</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"November"</span><span class="sc">~</span><span class="dv">11</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"December"</span><span class="sc">~</span><span class="dv">12</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>pna.date<span class="ot">&lt;-</span>pna<span class="sc">|&gt;</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year =</span> Year,<span class="at">month =</span> monthcode)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>pna.date.clean<span class="ot">&lt;-</span>pna.date<span class="sc">|&gt;</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,pna_index)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>snow_dates_tot.df<span class="ot">&lt;-</span>snow_dates.df<span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo=</span><span class="fu">case_when</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">31</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">30</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Buffalo<span class="sc">*</span><span class="dv">28</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto=</span><span class="fu">case_when</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">31</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">30</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Toronto<span class="sc">*</span><span class="dv">28</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh=</span><span class="fu">case_when</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">31</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">30</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Pittsburgh<span class="sc">*</span><span class="dv">28</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia=</span><span class="fu">case_when</span>(</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">1</span> <span class="sc">|</span> months<span class="sc">==</span><span class="dv">12</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">31</span>,</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">11</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">30</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>      months<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span>Philadelphia<span class="sc">*</span><span class="dv">28</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="climate-index-data-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="climate-index-data-formatting">Climate Index Data Formatting</h3>
+<p>The dplyr function <code>pivot_longer()</code> was used to transform each climate index table so each new table contains a singular for month, instead of twelve separate columns. These tables were then filtered to only include years from 1995 to 2026 and months in winter. A new column was created to contain a numeric representation of the month column which was used in conjunction with the year column to generate the same date column used preciously in the weather data tables. The old month and year columns were then dropped to prevent duplicate columns when joining with other tables.</p>
+<p>Only the transformation of the NAO table is shown here, as the code is identical to the other three indicies.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>soi.raw<span class="ot">&lt;-</span>soi.raw<span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nao.raw<span class="ot">&lt;-</span>nao.raw<span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year<span class="sc">&gt;=</span><span class="dv">1995</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>soi<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(soi.raw,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>nao<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(nao.raw,</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cols =</span> month.name[],</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to =</span> <span class="st">"soi_index"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to =</span> <span class="st">"nao_index"</span>,</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names_to =</span> <span class="st">"month"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>soi<span class="ot">&lt;-</span>soi<span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>nao<span class="ot">&lt;-</span>nao<span class="sc">|&gt;</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month<span class="sc">==</span><span class="st">"January"</span></span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"February"</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>         <span class="sc">|</span>month<span class="sc">==</span><span class="st">"November"</span><span class="sc">&amp;</span>Year<span class="sc">&lt;</span><span class="dv">2026</span></span>
@@ -490,35 +464,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      month<span class="sc">==</span><span class="st">"December"</span><span class="sc">~</span><span class="dv">12</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>soi.date<span class="ot">&lt;-</span>soi<span class="sc">|&gt;</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>nao.date<span class="ot">&lt;-</span>nao<span class="sc">|&gt;</span></span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span><span class="fu">make_date</span>(<span class="at">year =</span> Year,<span class="at">month =</span> monthcode)</span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>soi.date.clean<span class="ot">&lt;-</span>soi.date<span class="sc">|&gt;</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,soi_index)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>nao.date.clean<span class="ot">&lt;-</span>nao.date<span class="sc">|&gt;</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,nao_index)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="table-joining" class="level3">
+<h3 class="anchored" data-anchor-id="table-joining">Table Joining</h3>
+<p>The index tables were first joined together by the date column using the <code>inner_join()</code> to create a singular table with all indices.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>soi.tna<span class="ot">&lt;-</span><span class="fu">inner_join</span>(soi.date.clean,tna.date.clean,<span class="fu">join_by</span>(date))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>nao.pna<span class="ot">&lt;-</span><span class="fu">inner_join</span>(nao.date.clean,pna.date.clean,<span class="fu">join_by</span>(date))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>indices<span class="ot">&lt;-</span><span class="fu">inner_join</span>(soi.tna,nao.pna,<span class="fu">join_by</span>(date))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The snow and temperature datsets have city names assigned to their respective data, and are therefore exactly the same across both datasets. If joined, there would be no distinction betweem the snow and temperature values. To fix this, those columns were renamed with weather variable designations. Only the newly renamed columns and the date column were kept, but the month and year columns were still retained in the snowfall dataset in order to group the data by year or month.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>snow.clean<span class="ot">&lt;-</span>snow_dates_tot.df<span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span>Date,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo_s=</span><span class="fu">as.double</span>(Buffalo),</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto_s=</span><span class="fu">as.double</span>(Toronto),</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh_s=</span><span class="fu">as.double</span>(Pittsburgh),</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia_s=</span><span class="fu">as.double</span>(Philadelphia)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,Buffalo_s,Toronto_s,Pittsburgh_s,Philadelphia_s)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>temp.clean<span class="ot">&lt;-</span>temp_dates.df<span class="sc">|&gt;</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">date=</span>Date</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,Buffalo,Toronto,Pittsburgh,Philadelphia)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo_snow=</span>Buffalo,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto_snow=</span>Toronto,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh_snow=</span>Pittsburgh,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia_snow=</span>Philadelphia</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,Buffalo_snow,Toronto_snow,Pittsburgh_snow,Philadelphia_snow)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>temp.clean<span class="ot">&lt;-</span>temp_dates.df<span class="sc">|&gt;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Buffalo_temp=</span>Buffalo,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Toronto_temp=</span>Toronto,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pittsburgh_temp=</span>Pittsburgh,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Philadelphia_temp=</span>Philadelphia</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>temp.clean<span class="ot">&lt;-</span>temp.clean<span class="sc">|&gt;</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Buffalo_temp,Toronto_temp,Pittsburgh_temp,Philadelphia_temp,date,months,years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The weather variables were then joined together, followed by the weather variables and the climate indices to form a complete table.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>weather<span class="ot">&lt;-</span><span class="fu">inner_join</span>(snow.clean,temp.clean,<span class="fu">join_by</span>(date))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>complete_table<span class="ot">&lt;-</span><span class="fu">inner_join</span>(weather,indices,<span class="fu">join_by</span>(date))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -526,14 +509,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>summary_table<span class="ot">&lt;-</span>complete_table<span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">period=</span><span class="fu">case_when</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&lt;=</span><span class="dv">1999</span><span class="sc">~</span><span class="st">"1995-1999"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&gt;=</span><span class="dv">2000</span> <span class="sc">&amp;</span> years<span class="sc">&lt;=</span><span class="dv">2004</span><span class="sc">~</span><span class="st">"2000-2004"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&gt;=</span><span class="dv">2005</span> <span class="sc">&amp;</span> years<span class="sc">&lt;=</span><span class="dv">2009</span><span class="sc">~</span><span class="st">"2005-2009"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&gt;=</span><span class="dv">2010</span> <span class="sc">&amp;</span> years<span class="sc">&lt;=</span><span class="dv">2014</span><span class="sc">~</span><span class="st">"2010-2014"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&gt;=</span><span class="dv">2015</span> <span class="sc">&amp;</span> years<span class="sc">&lt;=</span><span class="dv">2019</span><span class="sc">~</span><span class="st">"2015-2019"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      years<span class="sc">&gt;=</span><span class="dv">2020</span> <span class="sc">&amp;</span> years<span class="sc">&lt;=</span><span class="dv">2026</span><span class="sc">~</span><span class="st">"2020-2026"</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(period)<span class="sc">|&gt;</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Buffalo_Snow=</span><span class="fu">mean</span>(Buffalo_snow),</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">Toronto_Snow =</span> <span class="fu">mean</span>(Toronto_snow),</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">Pittsburgh_Snow=</span><span class="fu">mean</span>(Pittsburgh_snow),</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">Philadelphia_Snow=</span><span class="fu">mean</span>(Philadelphia_snow))</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">tibble</span>(summary_table),<span class="at">caption=</span><span class="st">"Average 4-Month Monthly Snowfall"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Average 4-Month Monthly Snowfall</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">period</th>
+<th style="text-align: right;">Buffalo_Snow</th>
+<th style="text-align: right;">Toronto_Snow</th>
+<th style="text-align: right;">Pittsburgh_Snow</th>
+<th style="text-align: right;">Philadelphia_Snow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1995-1999</td>
+<td style="text-align: right;">12.15191</td>
+<td style="text-align: right;">10.208120</td>
+<td style="text-align: right;">7.325653</td>
+<td style="text-align: right;">4.238588</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2000-2004</td>
+<td style="text-align: right;">12.58296</td>
+<td style="text-align: right;">9.778742</td>
+<td style="text-align: right;">7.888589</td>
+<td style="text-align: right;">7.313673</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2005-2009</td>
+<td style="text-align: right;">13.65687</td>
+<td style="text-align: right;">12.219167</td>
+<td style="text-align: right;">7.261057</td>
+<td style="text-align: right;">4.891552</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2010-2014</td>
+<td style="text-align: right;">13.20700</td>
+<td style="text-align: right;">10.485712</td>
+<td style="text-align: right;">9.266674</td>
+<td style="text-align: right;">8.202834</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2015-2019</td>
+<td style="text-align: right;">13.25452</td>
+<td style="text-align: right;">10.359383</td>
+<td style="text-align: right;">7.775580</td>
+<td style="text-align: right;">5.348803</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020-2026</td>
+<td style="text-align: right;">12.08860</td>
+<td style="text-align: right;">10.617719</td>
+<td style="text-align: right;">6.429652</td>
+<td style="text-align: right;">4.361217</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 <section id="conclusions" class="level1">
 <h1>Conclusions</h1>
-<p>[~200 words]</p>
-<p>Clear summary adequately describing the results and putting them in context. Discussion of further questions and ways to continue investigation.</p>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<p>All sources are cited in a consistent manner</p>
+<p>National Oceanic And Atmospheric Administration. (2026). <em>Understanding El Niño and ENSO</em>. <a href="https://www.noaa.gov/understanding-el-nino" class="uri">https://www.noaa.gov/understanding-el-nino</a></p>
+<p>Roebber, P. J., Bruening, S. L., Schultz, D. M., &amp; Cortinas , J. V., Jr.&nbsp;(2003). Improving Snowfall Forecasting by Diagnosing Snow Density. Weather and Forecasting, 18(2), 264-287. <a href="https://doi.org/10.1175/1520-0434(2003)018%3C0264:ISFBDS" class="uri">https://doi.org/10.1175/1520-0434(2003)018&lt;0264:ISFBDS</a>2.0.CO;2&gt;</p>
+<p>Seager, R., Y. Kushnir, J. Nakamura, M. Ting, and N. Naik. (2010). Northern Hemisphere winter snow anomalies: ENSO, NAO and the winter of 2009/10. <em>Geophys. Res. Lett., 37</em>(14), Article L14703.<a href="https://doi.org/10.1029/2010GL043830" class="uri">https://doi.org/10.1029/2010GL043830</a></p>
 
 
 </section>
