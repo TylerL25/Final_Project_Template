@@ -134,7 +134,10 @@ state_bounds<-st_intersection(bbox_raster,state.trans)
 
 Both the snowfall and temperature rasters were then plotted using `ggplot()` with the new states shapefile for January 1995, the first date available in the netCDF files.
 
+::: {.panel-tabset}
+#### Snowfall
 ```{r}
+#| echo: false
 ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average Daily Snowfall in January 1995")+
@@ -145,6 +148,10 @@ ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
     plot.title = element_text(size=16),
     legend.title = element_text(size=12)
   )
+```
+#### Temperature
+```{r}
+#| echo: false
 ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average 2-meter Temperature in January 1995")+
@@ -156,7 +163,7 @@ ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
     legend.title = element_text(size=12)
   )
 ```
-
+:::
 Four cities were chosen to represent different areas of the Northeast:
 
 - Buffalo, New York
@@ -239,7 +246,7 @@ temp_dates.df<-temp_dates.df|>
     Buffalo=as.numeric(Buffalo),
     Toronto=as.numeric(Toronto),
     Pittsburgh=as.numeric(Pittsburgh),
-    Philadelphia=as.numeric(Pittsburgh),
+    Philadelphia=as.numeric(Philadelphia),
     date=make_date(year=years,month=months)
   )
 
@@ -468,12 +475,290 @@ summary_table<-complete_table|>
 knitr::kable(tibble(summary_table),caption="Average 4-Month Monthly Snowfall")
 ```
 
+```{r}
+#| echo: false
+complete_table<-complete_table|>
+  mutate(winter=case_when(
+    years==1995 & (months==1|months==2)~"1994-1995",
+    (years==1995 & (months==11|months==12))
+    |(years==1996 & (months==1|months==2))~"1995-1996",
+    (years==1996 & (months==11|months==12))
+    |(years==1997 & (months==1|months==2))~"1996-1997",
+    (years==1997 & (months==11|months==12))
+    |(years==1998 & (months==1|months==2))~"1997-1998",
+    (years==1998 & (months==11|months==12))
+    |(years==1999 & (months==1|months==2))~"1998-1999",
+    (years==1999 & (months==11|months==12))
+    |(years==2000 & (months==1|months==2))~"1999-2000",
+    (years==2000 & (months==11|months==12))
+    |(years==2001 & (months==1|months==2))~"2000-2001",
+    (years==2001 & (months==11|months==12))
+    |(years==2002 & (months==1|months==2))~"2001-2002",
+    (years==2002 & (months==11|months==12))
+    |(years==2003 & (months==1|months==2))~"2002-2003",
+    (years==2003 & (months==11|months==12))
+    |(years==2004 & (months==1|months==2))~"2003-2004",
+    (years==2004 & (months==11|months==12))
+    |(years==2005 & (months==1|months==2))~"2004-2005",
+    (years==2005 & (months==11|months==12))
+    |(years==2006 & (months==1|months==2))~"2005-2006",
+    (years==2006 & (months==11|months==12))
+    |(years==2007 & (months==1|months==2))~"2006-2007",
+    (years==2007 & (months==11|months==12))
+    |(years==2008 & (months==1|months==2))~"2007-2008",
+    (years==2008 & (months==11|months==12))
+    |(years==2009 & (months==1|months==2))~"2008-2009",
+    (years==2009 & (months==11|months==12))
+    |(years==2010 & (months==1|months==2))~"2009-2010",
+    (years==2010 & (months==11|months==12))
+    |(years==2011 & (months==1|months==2))~"2010-2011",
+    (years==2011 & (months==11|months==12))
+    |(years==2012 & (months==1|months==2))~"2011-2012",
+    (years==2012 & (months==11|months==12))
+    |(years==2013 & (months==1|months==2))~"2012-2013",
+    (years==2013 & (months==11|months==12))
+    |(years==2014 & (months==1|months==2))~"2013-2014",
+    (years==2014 & (months==11|months==12))
+    |(years==2015 & (months==1|months==2))~"2014-2015",
+    (years==2015 & (months==11|months==12))
+    |(years==2016 & (months==1|months==2))~"2015-2016",
+    (years==2016 & (months==11|months==12))
+    |(years==2017 & (months==1|months==2))~"2016-2017",
+    (years==2017 & (months==11|months==12))
+    |(years==2018 & (months==1|months==2))~"2017-2018",
+    (years==2018 & (months==11|months==12))
+    |(years==2019 & (months==1|months==2))~"2018-2019",
+    (years==2019 & (months==11|months==12))
+    |(years==2020 & (months==1|months==2))~"2019-2020",
+    (years==2020 & (months==11|months==12))
+    |(years==2021 & (months==1|months==2))~"2020-2021",
+    (years==2021 & (months==11|months==12))
+    |(years==2022 & (months==1|months==2))~"2021-2022",
+    (years==2022 & (months==11|months==12))
+    |(years==2023 & (months==1|months==2))~"2022-2023",
+    (years==2023 & (months==11|months==12))
+    |(years==2024 & (months==1|months==2))~"2023-2024",
+    (years==2024 & (months==11|months==12))
+    |(years==2025 & (months==1|months==2))~"2024-2025",
+    (years==2025 & (months==11|months==12))
+    |(years==2026 & (months==1|months==2))~"2025-2026"
+    
+  ))
+```
+
+```{r}
+summary_winter<-complete_table|>
+  group_by(winter)|>
+  summarise(Buffalo_avg_snow=mean(Buffalo_snow),
+            Toronto_avg_snow=mean(Toronto_snow),
+            Pittsburgh_avg_snow=mean(Pittsburgh_snow),
+            Philadelphia_avg_snow=mean(Philadelphia_snow),
+            Buffalo_avg_temp=mean(Buffalo_temp),
+            Toronto_avg_temp=mean(Toronto_temp),
+            Pittsburgh_avg_temp=mean(Pittsburgh_temp),
+            Philadelphia_avg_temp=mean(Philadelphia_temp),
+            nao_index_avg=mean(nao_index),
+            soi_index_avg=mean(soi_index),
+            tna_index_avg=mean(tna_index),
+            pna_index_avg=mean(pna_index)
+            )
+```
+
+:::: {.panel-tabset}
+### Temperature
+```{r}
+#| fig-height: 3
+#| fig-width: 8
+#| echo: false
+ggplot(summary_winter,aes(x=winter))+
+  geom_line(aes(y=Buffalo_avg_temp,group=1,color="Buffalo"),lwd=1)+
+  geom_line(aes(y=Toronto_avg_temp,group=1,color="Toronto"),lwd=1)+
+  geom_line(aes(y=Pittsburgh_avg_temp,group=1,color="Pittsburgh"),lwd=1)+
+  geom_line(aes(y=Philadelphia_avg_temp,group=1,color="Philadelphia"),lwd=1)+
+  theme_bw()+
+  theme(
+    axis.text.x=element_text(angle=90)
+  )+
+  labs(
+    title="Average Winter Season Temperature by City",
+    x="Winter Season",
+    y="Average Temperature (°F)"
+  )+
+  scale_color_manual(name="City",values=c("blue3","green3","red3","orange1"))
+  
+```
+### Snowfall
+```{r}
+#| fig-height: 3
+#| fig-width: 8
+#| echo: false
+ggplot(summary_winter,aes(x=winter))+
+  geom_line(aes(y=Buffalo_avg_snow,group=1,color="Buffalo"),lwd=1)+
+  geom_line(aes(y=Toronto_avg_snow,group=1,color="Toronto"),lwd=1)+
+  geom_line(aes(y=Pittsburgh_avg_snow,group=1,color="Pittsburgh"),lwd=1)+
+  geom_line(aes(y=Philadelphia_avg_snow,group=1,color="Philadelphia"),lwd=1)+
+  theme_bw()+
+  theme(
+    axis.text.x=element_text(angle=90)
+  )+
+  labs(
+    title="Average Winter Season Snowfall by City",
+    x="Winter Season",
+    y="Average Snowfall (in)"
+  )+
+  scale_color_manual(name="City",values=c("blue3","green3","red3","orange1"))
+  
+```
+### Climate Indices
+```{r}
+#| fig-height: 3
+#| fig-width: 8
+#| echo: false
+ggplot(summary_winter,aes(x=winter))+
+  geom_line(aes(y=soi_index_avg,group=1,color="SOI"),lwd=1)+
+  geom_line(aes(y=nao_index_avg,group=1,color="NAO"),lwd=1)+
+  geom_line(aes(y=tna_index_avg,group=1,color="TNA"),lwd=1)+
+  geom_line(aes(y=pna_index_avg,group=1,color="PNA"),lwd=1)+
+  theme_bw()+
+  theme(
+    axis.text.x=element_text(angle=90)
+  )+
+  labs(
+    title="Average Winter Season Cimate Variable Index Value",
+    x="Winter Season",
+    y="Value"
+  )+
+  scale_color_manual(name="Index",values=c("blue3","green3","red3","orange1"))
+```
+::::
+
+::::{.panel-tabset}
+### Buffalo Temp
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~soi_index)),digits=3,
+             caption="Buffalo Temperature vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~nao_index)),digits=3,
+             caption="Buffalo Temperature vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~pna_index)),digits=3,
+             caption="Buffalo Temperature vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~tna_index)),digits=3,
+             caption="Buffalo Temperature vs TNA")
+```
+### Toronto Temp
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_temp~soi_index)),digits=3,
+             caption="Toronto Temperature vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_temp~nao_index)),digits=3,
+             caption="Toronto Temperature vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_temp~pna_index)),digits=3,
+             caption="Toronto Temperature vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_temp~tna_index)),digits=3,
+             caption="Toronto Temperature vs TNA")
+```
+### Pittsburgh Temp
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~soi_index)),digits=3,
+             caption="Pittsburgh Temperature vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~nao_index)),digits=3,
+             caption="Pittsburgh Temperature vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~pna_index)),digits=3,
+             caption="Pittsburgh Temperature vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~tna_index)),digits=3,
+             caption="Pittsburgh Temperature vs TNA")
+```
+### Philadelphia Tem
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_temp~soi_index)),digits=3,
+             caption="Philadelphia Temperature vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_temp~nao_index)),digits=3,
+             caption="Philadelphia Temperature vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_temp~pna_index)),digits=3,
+             caption="Philadelphia Temperature vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_temp~tna_index)),digits=3,
+             caption="Philadelphia Temperature vs TNA")
+```
+### Buffalo Snow
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_snow~soi_index)),digits=3,
+             caption="Buffalo Snowfall vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_snow~nao_index)),digits=3,
+             caption="Buffalo Snowfall vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_snow~pna_index)),digits=3,
+             caption="Buffalo Snowfall vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_snow~tna_index)),digits=3,
+             caption="Buffalo Snowfall vs TNA")
+```
+### Toronto Snow
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_snow~soi_index)),digits=3,
+             caption="Toronto Snowfall vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_snow~nao_index)),digits=3,
+             caption="Toronto Snowfall vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_snow~pna_index)),digits=3,
+             caption="Toronto Snowfall vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Toronto_snow~tna_index)),digits=3,
+             caption="Toronto Snowfall vs TNA")
+```
+### Pittsburgh Snow
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_snow~soi_index)),digits=3,
+             caption="Pittsburgh Snowfall vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_snow~nao_index)),digits=3,
+             caption="Pittsburgh Snowfall vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_snow~pna_index)),digits=3,
+             caption="Pittsburgh Snowfall vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_snow~tna_index)),digits=3,
+             caption="Pittsburgh Snowfall vs TNA")
+```
+### Philadelphia Snow
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_snow~soi_index)),digits=3,
+             caption="Philadelphia Snowfall vs SOI")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_snow~nao_index)),digits=3,
+             caption="Philadelphia Snowfall vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_snow~pna_index)),digits=3,
+             caption="Philadelphia Snowfall vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_snow~tna_index)),digits=3,
+             caption="Philadelphia Snowfall vs TNA")
+```
+::::
+
+::::{.panel-tabset}
+### Different Ocean
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,soi_index~nao_index)),digits=3,
+             caption="SOI vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,soi_index~tna_index)),digits=3,
+             caption="SOI vs TNA")
+knitr::kable(broom::tidy(lm(data=complete_table,pna_index~nao_index)),digits=3,
+             caption="PNA vs NAO")
+knitr::kable(broom::tidy(lm(data=complete_table,pna_index~tna_index)),digits=3,
+             caption="PNA vs TNA")
+```
+### Same Ocean
+```{r}
+#| echo: false
+knitr::kable(broom::tidy(lm(data=complete_table,soi_index~pna_index)),digits=3,
+             caption="SOI vs PNA")
+knitr::kable(broom::tidy(lm(data=complete_table,nao_index~tna_index)),digits=3,
+             caption="NAO vs TNA")
+```
+::::
 # Conclusions
 
 # References
 
 National Oceanic And Atmospheric Administration. (2026). *Understanding El Niño and ENSO*. <https://www.noaa.gov/understanding-el-nino>
 
-Roebber, P. J., Bruening, S. L., Schultz, D. M., & Cortinas , J. V., Jr. (2003). Improving Snowfall Forecasting by Diagnosing Snow Density. Weather and Forecasting, 18(2), 264-287. [https://doi.org/10.1175/1520-0434(2003)018\<0264:ISFBDS\>2.0.C):2](https://doi.org/10.1175/1520-0434(2003)018%3C0264:ISFBDS>2.0.CO;2){.uri}
+Roebber, P. J., Bruening, S. L., Schultz, D. M., & Cortinas , J. V., Jr. (2003). Improving Snowfall Forecasting by Diagnosing Snow Density. Weather and Forecasting, 18(2), 264-287. [https://doi.org/10.1175/1520-0434(2003)018\<0264:ISFBDS\>2.0.C):2](https://doi.org/10.1175/1520-0434(2003)018%3C0264:ISFBDS%3E2.0.CO;2){.uri}
 
 Seager, R., Y. Kushnir, J. Nakamura, M. Ting, and N. Naik. (2010). Northern Hemisphere winter snow anomalies: ENSO, NAO and the winter of 2009/10. *Geophys. Res. Lett., 37*(14), Article L14703.<https://doi.org/10.1029/2010GL043830>
