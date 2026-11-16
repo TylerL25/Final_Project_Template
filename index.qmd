@@ -125,7 +125,7 @@ snowfall_rasters_in<-snowfall_rasters*(100/2.54)*10
 ```{r}
 #| message: false
 #| warning: false
-states<-states()
+states<-states() 
 state.trans<-st_transform(states,crs=st_crs(snowfall_rasters))
 state.trans<-state.trans$geometry
 bbox_raster<-st_as_sfc(st_bbox(snowfall_rasters))
@@ -146,7 +146,7 @@ ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
   theme(
     panel.background = element_blank(),
     plot.title = element_text(size=16),
-    legend.title = element_text(size=12)
+    legend.title = element_text(size=12) 
   )
 ```
 #### Temperature
@@ -160,7 +160,7 @@ ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
   theme(
     panel.background = element_blank(),
     plot.title = element_text(size=16),
-    legend.title = element_text(size=12)
+    legend.title = element_text(size=12) 
   )
 ```
 :::
@@ -171,7 +171,7 @@ Four cities were chosen to represent different areas of the Northeast:
 - Pittsburgh, Pennsylvania
 - Philadelphia, Pennsylvania
 
-Although Buffalo and Toronto are in geographic proximity to each other, they were chosen as Buffalo often receives significant lake effect snow, where Toronto does not. Differences in snowfall between both cities would then mostly be attributed to lake-effect snow events.
+Although Buffalo and Toronto are in geographic proximity to each other, they were chosen as Buffalo often receives significant lake effect snow, where Toronto does not. Differences in snowfall between both cities would then mostly be attributed to lake-effect snow events. 
 
 The cities and their coordinates were created as vectors, which were then combined into a spatial data frame. This dataframe was transformed to match the coordinate system of the netCDF rasters, WGS 84.
 
@@ -609,7 +609,7 @@ ggplot(summary_winter,aes(x=winter))+
   scale_color_manual(name="City",values=c("blue3","green3","red3","orange1"))
   
 ```
-### Climate Indices
+### Climate Indices 
 ```{r}
 #| fig-height: 3
 #| fig-width: 8
@@ -633,7 +633,7 @@ ggplot(summary_winter,aes(x=winter))+
 ::::
 
 ::::{.panel-tabset}
-### Buffalo Temp
+### Buffalo Temp 
 ```{r}
 #| echo: false
 knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~soi_index)),digits=3,
