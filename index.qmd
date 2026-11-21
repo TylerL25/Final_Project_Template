@@ -19,8 +19,8 @@ Although long-term climate trends are not as noticeable as day-to-day weather co
 Though ENSO is more significant than NAO, areas further away from the Pacific ocean may be influenced more by closer indices, such as NAO. In addition, certain combinations of indices may lead to different effects, such as the snowy winter of 2009/2010 occuring due to a negative NAO and positive ENSO combination (Seager et al., 2010). This study aims to analyze the severity of past winters in the Northeast and determine if there are any relationships between winter severity and climate indices.
 
 ## Project Goals
-
-1.  Determine if relationships exist between climate indices and winter weather severity
+# Goal 1 will be more accurate if you use 'Examine associations between selected climate indices and winter temperature and snowfall across four cities'.
+1.  Determine if relationships exist between climate indices and winter weather severity 
 2.  Identify any correlation between relevant climate indices
 3.  Determine if certain climate indices disproportionately affect areas that are prone lake effect snow
 
@@ -40,7 +40,8 @@ Four different indices were pulled from this website to represent the four corne
 - Tropical North Atlantic Index (TNA)
 - North Atlantic Oscillation (NAO)
 - Pacific North American Pattern (PNA)
-- Pacific Oscillation Index (SOI)
+# There is a type error here, it should be Southern Oscillation Index (SOI)
+- Pacific Oscillation Index (SOI) 
 
 The ERA5 Climate Reanalysis data is available through the Climate Data Store from the European Centre for Medium Range Weather Forecasts (ECMWF). Although this dataset is publicly available, registration for a free account is required to download data. All reanalysis data from the Climate Data Store was derived from the ECMWF weather model, which was used to interpret and model past observational weather conditions.
 
@@ -170,6 +171,9 @@ Four cities were chosen to represent different areas of the Northeast:
 - Toronto, Ontario
 - Pittsburgh, Pennsylvania
 - Philadelphia, Pennsylvania
+
+# The current analysis does not sufficiently account for other factors that may explain the differences between Buffalo and Toronto. Therefore, it may be too strong to #claim that these differences are primarily attributable to lake-effect snow. I suggest using more objective wording, such as:
+#"Buffalo and Toronto were selected to explore whether the associations between climate indices and snowfall differ between locations with contrasting exposure to lake-effect snow."
 
 Although Buffalo and Toronto are in geographic proximity to each other, they were chosen as Buffalo often receives significant lake effect snow, where Toronto does not. Differences in snowfall between both cities would then mostly be attributed to lake-effect snow events.
 
@@ -634,8 +638,11 @@ ggplot(summary_winter,aes(x=winter))+
 
 ::::{.panel-tabset}
 ### Buffalo Temp
+# For the linear regression models, you currently combine data from all four winter months and years, using only the corresponding climate index as a predictor. This is #reasonable for an exploratory analysis. However, to obtain more reliable estimates of the associations, consider including both month and year as control variables in the #monthly regression models. November, December, January, and February naturally have different temperature and snowfall patterns due to seasonal variations. In addition, #long-term climate trends, such as regional warming, may influence winter weather over the study period. Without controlling for these factors, the observed relationships between climate indices and winter weather may partly reflect seasonal differences or long-term trends rather than associations with climate indices themselves.
+
 ```{r}
 #| echo: false
+
 knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~soi_index)),digits=3,
              caption="Buffalo Temperature vs SOI")
 knitr::kable(broom::tidy(lm(data=complete_table,Buffalo_temp~nao_index)),digits=3,
@@ -733,6 +740,18 @@ knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_snow~tna_index)),di
 
 ::::{.panel-tabset}
 ### Different Ocean
+# I understand that the purpose of this section is to identify associations among the different climate indices, and regression analysis is a reasonable approach. I suggest # adding a correlation matrix or table, which would provide a more intuitive overview of the strength and direction of the relationships between the indices.
+```{r}
+# Extract the four climate indices.
+# index_data <- complete_table |> dplyr::select(nao_index, soi_index, pna_index, tna_index)
+
+# Calculate Pearson correlation coefficients using only months with valid values for all four indices.
+# index_cor <- cor(index_data, use = "complete.obs", method = "pearson")
+
+# Display the correlation matrix in the report.
+# knitr::kable(index_cor, digits = 3,caption = "Correlations among monthly climate indices")
+
+```
 ```{r}
 #| echo: false
 knitr::kable(broom::tidy(lm(data=complete_table,soi_index~nao_index)),digits=3,
