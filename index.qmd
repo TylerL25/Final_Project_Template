@@ -630,6 +630,11 @@ dygraph(dygraph_index,main = "Average Winter Climate Index Value")|>
   dyRangeSelector(height = 20)
 ```
 ::::
+### Temperature vs Snowfall
+
+```{r}
+
+```
 
 ::::{.panel-tabset}
 ### Buffalo Temp
