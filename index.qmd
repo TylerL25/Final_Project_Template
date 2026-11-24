@@ -7,7 +7,6 @@ date: today
 date-format: long
 format:
   html: default
-  docx: default
 ---
 
 # Introduction
@@ -53,7 +52,7 @@ ERA5 Data that was downloaded for this study are for two weather variables, aver
 All required packages were loaded into the work space. `ncdf4`,`rasterVis`,`tidyterra`, and `tigris` needed to be intsalled first before being loaded in.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 #| message: false
 #| warning: false
 #install.packages("ncdf4")
@@ -72,6 +71,7 @@ library(rasterVis)
 library(tidyterra)
 library(tigris)
 library(lubridate)
+library(dygraphs)
 ```
 
 The four climate index datasets found online were copied directly into .txt files. Each file was then read into R using `read.csv()` and loaded in as distinct objects with the correct column names.
@@ -137,30 +137,41 @@ Both the snowfall and temperature rasters were then plotted using `ggplot()` wit
 ::: {.panel-tabset}
 #### Snowfall
 ```{r}
-#| echo: false
+#| code-fold: true
+#| warning: false
+
+maxval=max(minmax(snowfall_rasters_in$sf_1))
 ggplot()+geom_spatraster(data=snowfall_rasters_in$sf_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average Daily Snowfall in January 1995")+
   scale_fill_continuous(name="Snowfall (in)",
-                        palette = c("skyblue1","blue","purple1","pink2"))+
+                        palette = c("skyblue1","blue","purple1","pink2"),
+                        limits = c(0,maxval)
+                        )+
   theme(
     panel.background = element_blank(),
     plot.title = element_text(size=16),
-    legend.title = element_text(size=12)
+    legend.title = element_text(size=12),
+    legend.position = "bottom"
   )
 ```
 #### Temperature
 ```{r}
 #| echo: false
+
+minval<-min(minmax(temp_rasters_f$t2m_1))
+
 ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
   geom_sf(data=state_bounds,fill=NA,lwd=0.7,color="grey20")+
   labs(title = "Average 2-meter Temperature in January 1995")+
   scale_fill_continuous(name="Temperature (°F)",
-                        palette = c("purple2","blue","cyan3","green4"))+
+                        palette = c("purple2","blue","cyan3","green4"),
+                        limits = c(minval,40))+
   theme(
     panel.background = element_blank(),
     plot.title = element_text(size=16),
-    legend.title = element_text(size=12)
+    legend.title = element_text(size=12),
+    legend.position = "bottom"
   )
 ```
 :::
@@ -202,11 +213,13 @@ ggplot()+geom_spatraster(data=temp_rasters_f$t2m_1)+
                color="white")+
   labs(title = "Average 2-meter Temperature in January 1995",x="",y="")+
   scale_fill_continuous(name="Temperature (°F)",
-                        palette = c("purple2","blue","cyan3","green4"))+
+                        palette = c("purple2","blue","cyan3","green4"),
+                        limits=c(minval,40))+
   theme(
     panel.background = element_blank(),
     plot.title = element_text(size=16),
     legend.title = element_text(size=12),
+    legend.position = "bottom"
   )
 ```
 
@@ -476,72 +489,72 @@ knitr::kable(tibble(summary_table),caption="Average 4-Month Monthly Snowfall")
 ```
 
 ```{r}
-#| echo: false
+#| code-fold: true
 complete_table<-complete_table|>
   mutate(winter=case_when(
-    years==1995 & (months==1|months==2)~"1994-1995",
+    years==1995 & (months==1|months==2)~1994,
     (years==1995 & (months==11|months==12))
-    |(years==1996 & (months==1|months==2))~"1995-1996",
+    |(years==1996 & (months==1|months==2))~1995,
     (years==1996 & (months==11|months==12))
-    |(years==1997 & (months==1|months==2))~"1996-1997",
+    |(years==1997 & (months==1|months==2))~1996,
     (years==1997 & (months==11|months==12))
-    |(years==1998 & (months==1|months==2))~"1997-1998",
+    |(years==1998 & (months==1|months==2))~1997,
     (years==1998 & (months==11|months==12))
-    |(years==1999 & (months==1|months==2))~"1998-1999",
+    |(years==1999 & (months==1|months==2))~1998,
     (years==1999 & (months==11|months==12))
-    |(years==2000 & (months==1|months==2))~"1999-2000",
+    |(years==2000 & (months==1|months==2))~1999,
     (years==2000 & (months==11|months==12))
-    |(years==2001 & (months==1|months==2))~"2000-2001",
+    |(years==2001 & (months==1|months==2))~2000,
     (years==2001 & (months==11|months==12))
-    |(years==2002 & (months==1|months==2))~"2001-2002",
+    |(years==2002 & (months==1|months==2))~2001,
     (years==2002 & (months==11|months==12))
-    |(years==2003 & (months==1|months==2))~"2002-2003",
+    |(years==2003 & (months==1|months==2))~2002,
     (years==2003 & (months==11|months==12))
-    |(years==2004 & (months==1|months==2))~"2003-2004",
+    |(years==2004 & (months==1|months==2))~2003,
     (years==2004 & (months==11|months==12))
-    |(years==2005 & (months==1|months==2))~"2004-2005",
+    |(years==2005 & (months==1|months==2))~2004,
     (years==2005 & (months==11|months==12))
-    |(years==2006 & (months==1|months==2))~"2005-2006",
+    |(years==2006 & (months==1|months==2))~2005,
     (years==2006 & (months==11|months==12))
-    |(years==2007 & (months==1|months==2))~"2006-2007",
+    |(years==2007 & (months==1|months==2))~2006,
     (years==2007 & (months==11|months==12))
-    |(years==2008 & (months==1|months==2))~"2007-2008",
+    |(years==2008 & (months==1|months==2))~2007,
     (years==2008 & (months==11|months==12))
-    |(years==2009 & (months==1|months==2))~"2008-2009",
+    |(years==2009 & (months==1|months==2))~2008,
     (years==2009 & (months==11|months==12))
-    |(years==2010 & (months==1|months==2))~"2009-2010",
+    |(years==2010 & (months==1|months==2))~2009,
     (years==2010 & (months==11|months==12))
-    |(years==2011 & (months==1|months==2))~"2010-2011",
+    |(years==2011 & (months==1|months==2))~2010,
     (years==2011 & (months==11|months==12))
-    |(years==2012 & (months==1|months==2))~"2011-2012",
+    |(years==2012 & (months==1|months==2))~2011,
     (years==2012 & (months==11|months==12))
-    |(years==2013 & (months==1|months==2))~"2012-2013",
+    |(years==2013 & (months==1|months==2))~2012,
     (years==2013 & (months==11|months==12))
-    |(years==2014 & (months==1|months==2))~"2013-2014",
+    |(years==2014 & (months==1|months==2))~2013,
     (years==2014 & (months==11|months==12))
-    |(years==2015 & (months==1|months==2))~"2014-2015",
+    |(years==2015 & (months==1|months==2))~2014,
     (years==2015 & (months==11|months==12))
-    |(years==2016 & (months==1|months==2))~"2015-2016",
+    |(years==2016 & (months==1|months==2))~2015,
     (years==2016 & (months==11|months==12))
-    |(years==2017 & (months==1|months==2))~"2016-2017",
+    |(years==2017 & (months==1|months==2))~2016,
     (years==2017 & (months==11|months==12))
-    |(years==2018 & (months==1|months==2))~"2017-2018",
+    |(years==2018 & (months==1|months==2))~2017,
     (years==2018 & (months==11|months==12))
-    |(years==2019 & (months==1|months==2))~"2018-2019",
+    |(years==2019 & (months==1|months==2))~2018,
     (years==2019 & (months==11|months==12))
-    |(years==2020 & (months==1|months==2))~"2019-2020",
+    |(years==2020 & (months==1|months==2))~2019,
     (years==2020 & (months==11|months==12))
-    |(years==2021 & (months==1|months==2))~"2020-2021",
+    |(years==2021 & (months==1|months==2))~2020,
     (years==2021 & (months==11|months==12))
-    |(years==2022 & (months==1|months==2))~"2021-2022",
+    |(years==2022 & (months==1|months==2))~2021,
     (years==2022 & (months==11|months==12))
-    |(years==2023 & (months==1|months==2))~"2022-2023",
+    |(years==2023 & (months==1|months==2))~2022,
     (years==2023 & (months==11|months==12))
-    |(years==2024 & (months==1|months==2))~"2023-2024",
+    |(years==2024 & (months==1|months==2))~2023,
     (years==2024 & (months==11|months==12))
-    |(years==2025 & (months==1|months==2))~"2024-2025",
+    |(years==2025 & (months==1|months==2))~2024,
     (years==2025 & (months==11|months==12))
-    |(years==2026 & (months==1|months==2))~"2025-2026"
+    |(years==2026 & (months==1|months==2))~2025
     
   ))
 ```
@@ -563,72 +576,58 @@ summary_winter<-complete_table|>
             pna_index_avg=mean(pna_index)
             )
 ```
+```{r}
+dygraph_temp<-summary_winter|>
+  select(winter,Buffalo_avg_temp,Toronto_avg_temp,Pittsburgh_avg_temp,Philadelphia_avg_temp)
+dygraph_snow<-summary_winter|>
+  select(winter,Buffalo_avg_snow,Toronto_avg_snow,Pittsburgh_avg_snow,Philadelphia_avg_snow)
+dygraph_index<-summary_winter|>
+  select(winter,soi_index_avg,nao_index_avg,pna_index_avg,tna_index_avg)
+```
 
 :::: {.panel-tabset}
 ### Temperature
-```{r}
-#| fig-height: 3
-#| fig-width: 8
-#| echo: false
-ggplot(summary_winter,aes(x=winter))+
-  geom_line(aes(y=Buffalo_avg_temp,group=1,color="Buffalo"),lwd=1)+
-  geom_line(aes(y=Toronto_avg_temp,group=1,color="Toronto"),lwd=1)+
-  geom_line(aes(y=Pittsburgh_avg_temp,group=1,color="Pittsburgh"),lwd=1)+
-  geom_line(aes(y=Philadelphia_avg_temp,group=1,color="Philadelphia"),lwd=1)+
-  theme_bw()+
-  theme(
-    axis.text.x=element_text(angle=90)
-  )+
-  labs(
-    title="Average Winter Season Temperature by City",
-    x="Winter Season",
-    y="Average Temperature (°F)"
-  )+
-  scale_color_manual(name="City",values=c("blue3","green3","red3","orange1"))
+```{r,fig.width=5,fig.height=3}
+#| code-fold: true
+dygraph(dygraph_temp,main = "Average Winter Month Temperature")|>
+  dySeries("Buffalo_avg_temp",label="Buffalo",color = "lightgreen")|>
+  dySeries("Toronto_avg_temp",label="Toronto",color="orange")|>
+  dySeries("Pittsburgh_avg_temp",label="Pittsburgh",color="red")|>
+  dySeries("Philadelphia_avg_temp",label="Philadelphia",color="skyblue")|>
+  dyOptions(strokeWidth = 2,axisLabelColor = "white",axisLineColor = "lightgrey",gridLineColor = "lightgrey",strokeBorderColor = "grey",strokeBorderWidth = 0.1)|>
+  dyAxis("x",label = "Start Year of Winter")|>
+  dyAxis("y",label = "Temperature (°F)")|>
+  dyLegend(labelsSeparateLines = TRUE,width=130)|>
+  dyRangeSelector(height = 20)
+  
   
 ```
 ### Snowfall
-```{r}
-#| fig-height: 3
-#| fig-width: 8
-#| echo: false
-ggplot(summary_winter,aes(x=winter))+
-  geom_line(aes(y=Buffalo_avg_snow,group=1,color="Buffalo"),lwd=1)+
-  geom_line(aes(y=Toronto_avg_snow,group=1,color="Toronto"),lwd=1)+
-  geom_line(aes(y=Pittsburgh_avg_snow,group=1,color="Pittsburgh"),lwd=1)+
-  geom_line(aes(y=Philadelphia_avg_snow,group=1,color="Philadelphia"),lwd=1)+
-  theme_bw()+
-  theme(
-    axis.text.x=element_text(angle=90)
-  )+
-  labs(
-    title="Average Winter Season Snowfall by City",
-    x="Winter Season",
-    y="Average Snowfall (in)"
-  )+
-  scale_color_manual(name="City",values=c("blue3","green3","red3","orange1"))
+```{r,fig.width=5,fig.height=3}
+dygraph(dygraph_snow,main = "Average Winter Month Snowfall")|>
+  dySeries("Buffalo_avg_snow",label="Buffalo",color = "lightgreen")|>
+  dySeries("Toronto_avg_snow",label="Toronto",color="orange")|>
+  dySeries("Pittsburgh_avg_snow",label="Pittsburgh",color="red")|>
+  dySeries("Philadelphia_avg_snow",label="Philadelphia",color="skyblue")|>
+  dyOptions(strokeWidth = 2,axisLabelColor = "white",axisLineColor = "lightgrey",gridLineColor = "lightgrey",strokeBorderColor = "grey",strokeBorderWidth = 0.1)|>
+  dyAxis("x",label = "Start Year of Winter")|>
+  dyAxis("y",label = "Daily Snowfall (in)")|>
+  dyLegend(labelsSeparateLines = TRUE,width=130)|>
+  dyRangeSelector(height = 20)
   
 ```
 ### Climate Indices
-```{r}
-#| fig-height: 3
-#| fig-width: 8
-#| echo: false
-ggplot(summary_winter,aes(x=winter))+
-  geom_line(aes(y=soi_index_avg,group=1,color="SOI"),lwd=1)+
-  geom_line(aes(y=nao_index_avg,group=1,color="NAO"),lwd=1)+
-  geom_line(aes(y=tna_index_avg,group=1,color="TNA"),lwd=1)+
-  geom_line(aes(y=pna_index_avg,group=1,color="PNA"),lwd=1)+
-  theme_bw()+
-  theme(
-    axis.text.x=element_text(angle=90)
-  )+
-  labs(
-    title="Average Winter Season Cimate Variable Index Value",
-    x="Winter Season",
-    y="Value"
-  )+
-  scale_color_manual(name="Index",values=c("blue3","green3","red3","orange1"))
+```{r,fig.width=5,fig.height=3}
+dygraph(dygraph_index,main = "Average Winter Climate Index Value")|>
+  dySeries("soi_index_avg",label="SOI",color = "lightgreen")|>
+  dySeries("nao_index_avg",label="NAO",color="orange")|>
+  dySeries("pna_index_avg",label="PNA",color="red")|>
+  dySeries("tna_index_avg",label="TNA",color="skyblue")|>
+  dyOptions(strokeWidth = 2,axisLabelColor = "white",axisLineColor = "lightgrey",gridLineColor = "lightgrey",strokeBorderColor = "grey",strokeBorderWidth = 0.1)|>
+  dyAxis("x",label = "Start Year of Winter")|>
+  dyAxis("y",label = "Index Value")|>
+  dyLegend(labelsSeparateLines = TRUE,width=130)|>
+  dyRangeSelector(height = 20)
 ```
 ::::
 
@@ -669,7 +668,7 @@ knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~pna_index)),digi
 knitr::kable(broom::tidy(lm(data=complete_table,Pittsburgh_temp~tna_index)),digits=3,
              caption="Pittsburgh Temperature vs TNA")
 ```
-### Philadelphia Tem
+### Philadelphia Temp
 ```{r}
 #| echo: false
 knitr::kable(broom::tidy(lm(data=complete_table,Philadelphia_temp~soi_index)),digits=3,
@@ -753,6 +752,8 @@ knitr::kable(broom::tidy(lm(data=complete_table,nao_index~tna_index)),digits=3,
              caption="NAO vs TNA")
 ```
 ::::
+
+
 # Conclusions
 
 # References
