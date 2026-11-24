@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://TylerL25.github.io/Final_Project_Template/index.html</loc>
+    <lastmod>2026-11-24T19:42:52.606Z</lastmod>
+  </url>
+  <url>
     <loc>https://TylerL25.github.io/Final_Project_Template/about.html</loc>
-    <lastmod>2026-11-15T02:48:40.491Z</lastmod>
+    <lastmod>2026-11-24T19:42:52.601Z</lastmod>
   </url>
   <url>
     <loc>https://TylerL25.github.io/Final_Project_Template/data/Readme.html</loc>
-    <lastmod>2026-11-15T02:48:40.493Z</lastmod>
-  </url>
-  <url>
-    <loc>https://TylerL25.github.io/Final_Project_Template/index.html</loc>
-    <lastmod>2026-11-15T02:48:40.494Z</lastmod>
+    <lastmod>2026-11-24T19:42:52.605Z</lastmod>
   </url>
 </urlset>
